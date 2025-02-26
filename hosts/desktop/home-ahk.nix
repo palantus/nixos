@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "ahk";
   home.homeDirectory = "/home/ahk";
 
@@ -21,6 +23,7 @@
     zig
     unzip
     nodejs
+    obsidian
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
