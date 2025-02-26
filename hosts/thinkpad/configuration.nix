@@ -58,6 +58,19 @@
     LC_TIME = "da_DK.UTF-8";
   };
 
+  fonts.fontconfig.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+    fira-code
+    fira-code-symbols
+    font-awesome
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
+    noto-fonts
+    noto-fonts-emoji
+    proggyfonts
+  ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -65,13 +78,15 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   # set the flake package
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   # make sure to also set the portal package, so that they are in sync
-  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  # };
+  programs.hyprland = {
+    enable = true;
+    # withUWSM = true; # recommended for most users
+    # xwayland.enable = true; # Xwayland can be disabled.
+    # set the flake package
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -124,6 +139,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
+    git
+    waybar
+    dunst
+    ghostty
+    rofi-wayland
+    networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
