@@ -25,6 +25,10 @@
     nodejs
     obsidian
     obs-studio
+    rustc #Neovim
+    cargo #Neovim
+    fzf #Neovim
+    ripgrep #Neovim
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
