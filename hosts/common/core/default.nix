@@ -27,7 +27,7 @@
   #
   hostSpec = {
     username = "ahk";
-    handle = "ahk";
+    handle = "palantus";
     inherit (inputs.nix-secrets)
       domain
       email
@@ -39,11 +39,13 @@
   networking.hostName = config.hostSpec.hostName;
 
   # System-wide packages, in case we log in as root
-  environment.systemPackages = [ 
-    pkgs.openssh 
-    pkgs.usbutils
-    pkgs.udiskie
-    pkgs.udisks
+  environment.systemPackages = with pkgs;[ 
+    openssh 
+    usbutils
+    udiskie
+    udisks
+    wget
+    neovim
   ];
 
   # Usb disks and mounting
