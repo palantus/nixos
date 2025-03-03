@@ -15,7 +15,6 @@
       cargo #Neovim
       fzf #Neovim
       ripgrep #Neovim
-      discord
       wl-clipboard # move to core
       hyprlock
       ;

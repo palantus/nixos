@@ -10,9 +10,9 @@
     # ========== Host-specific Optional Configs ==========
     #
     common/optional/browsers
-    # common/optional/desktops # default is hyprland
+    common/optional/desktops # default is hyprland
     # common/optional/development
-    # common/optional/comms
+    common/optional/comms
     # common/optional/helper-scripts
     # common/optional/gaming
     # common/optional/media
@@ -38,7 +38,7 @@
       name = "DP-2";
       width = 3440;
       height = 1440;
-      refreshRate = 99.98;
+      refreshRate = 100;
       x = 0;
       y = 0;
       # vrr = 1;
@@ -48,7 +48,7 @@
       name = "DP-1";
       width = 3840;
       height = 2160;
-      refreshRate = 59.997;
+      refreshRate = 60;
       x = 3440;
       y = 0;
       workspace = "5";
