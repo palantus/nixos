@@ -17,6 +17,7 @@
       ripgrep #Neovim
       discord
       wl-clipboard # move to core
+      hyprlock
       ;
   };
 }
