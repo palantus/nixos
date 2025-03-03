@@ -29,6 +29,8 @@
     cargo #Neovim
     fzf #Neovim
     ripgrep #Neovim
+    discord
+    wl-clipboard # move to core
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -2,28 +2,44 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = lib.flatten [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-    ];
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "root" = import ./home-root.nix;
-      "ahk" = import ./home-ahk.nix;
-    };
+      (map lib.custom.relativeToRoot [
+        "hosts/common/core"
+
+        # Optional
+        "hosts/common/optional/libvirt.nix"
+      ])
+    ];
+  
+  #
+  # ========== Host Specification ==========
+  #
+
+  hostSpec = {
+    hostName = "desktop";
   };
+
+  # home-manager = {
+  #   extraSpecialArgs = { inherit inputs; };
+  #   users = {
+  #     "root" = import ./home-root.nix;
+  #     "ahk" = import ./home-ahk.nix;
+  #   };
+  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
-  networking.hostName = "ahk-desktop"; # Define your hostname.
+  # networking.hostName = "ahk-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings = {
@@ -97,7 +113,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -116,17 +132,17 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ahk = {
-    isNormalUser = true;
-    description = "Anders Kristiansen";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
+  # users.users.ahk = {
+  #   isNormalUser = true;
+  #   description = "Anders Kristiansen";
+  #   extraGroups = [ "networkmanager" "wheel" ];
+  #   packages = with pkgs; [
+  #   #  thunderbird
+  #   ];
+  # };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.steam.enable = true;
 
   # Allow unfree packages
@@ -137,8 +153,8 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    home-manager
-    git
+    # home-manager
+    # git
     waybar
     dunst
     ghostty

@@ -24,6 +24,12 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  # fileSystems."/mnt/pop" = {
+  #   device = "/dev/nvme0n1p3";
+  #   fsType = "auto";
+  #   options = [ "defaults" "user" "rw" "noauto" ];
+  # };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/f78f9c8a-66cd-430c-9302-37e4d0cc13e9"; }
     ];
