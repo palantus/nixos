@@ -24,6 +24,7 @@
     # ./screen.nix
     # ./ssh.nix
     # ./zoxide.nix
+    ./neovim.nix
   ];
 
   inherit hostSpec;

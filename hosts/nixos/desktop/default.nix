@@ -23,6 +23,7 @@
         "hosts/common/optional/libvirt.nix" # vm tools
         # "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
         "hosts/common/optional/hyprland.nix" # window manager
+        # "hosts/common/optional/neovim.nix" # neovim nvf
         # "hosts/common/optional/msmtp.nix" # for sending email notifications
         # "hosts/common/optional/nvtop.nix" # GPU monitor (not available in home-manager)
         # "hosts/common/optional/obsidian.nix" # wiki
@@ -73,7 +74,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
@@ -175,7 +176,7 @@
     dunst
     ghostty
     rofi-wayland
-    networkmanagerapplet
+    # networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

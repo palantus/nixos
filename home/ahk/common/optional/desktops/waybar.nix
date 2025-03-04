@@ -30,7 +30,7 @@
           "pulseaudio"
           #"mpd"
           "tray"
-          "network"
+         # "network"
           "clock#time"
           "clock#date"
         ];

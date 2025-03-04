@@ -45,7 +45,7 @@
     udiskie
     udisks
     wget
-    neovim
+    # neovim
   ];
 
   # Usb disks and mounting

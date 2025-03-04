@@ -12,6 +12,9 @@
     # Theming
     stylix.url = "github:danth/stylix/release-24.11";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+
+    # NeoVIM manager (NVF)
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 
