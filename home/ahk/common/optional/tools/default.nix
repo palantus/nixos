@@ -12,7 +12,7 @@
 
       # Productivity
       # drawio
-      # grimblast
+      grimblast
       libreoffice
 
       # Privacy

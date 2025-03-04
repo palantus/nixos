@@ -43,6 +43,8 @@
       y = 0;
       # vrr = 1;
       primary = true;
+      workspace = "1";
+      workspaces = ["2" "3" "4" "5"]; 
     }
     {
       name = "DP-1";
@@ -51,7 +53,8 @@
       refreshRate = 60;
       x = 3440;
       y = 0;
-      workspace = "5";
+      workspace = "6";
+      scale = 1.5;
     }
   ];
 }

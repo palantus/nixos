@@ -113,7 +113,7 @@
 
         "ALT,Return,exec,${terminal}"
         "CTRL_ALT,v,exec,${terminal} ${editor}"
-        "CTRL_ALT,f,exec,thunar"
+        "CTRL_ALT,f,exec,nautilus"
 
         #
         # ========== Screenshotting ==========
@@ -198,6 +198,9 @@
         #
         "SUPER, m, exec, toggleMonitors"
         "SUPER, n, exec, toggleMonitorsNonPrimary"
+
+        "SUPER, mouse_up, workspace, e+1"
+        "SUPER, mouse_down, workspace, e-1"
 
         #
         # ========== Misc ==========

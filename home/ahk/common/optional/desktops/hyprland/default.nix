@@ -55,7 +55,7 @@
           "${m.name},${
             if m.enabled then
               "${toString m.width}x${toString m.height}@${toString m.refreshRate}"
-              + ",${toString m.x}x${toString m.y},1"
+              + ",${toString m.x}x${toString m.y},${toString m.scale}"
               + ",transform,${toString m.transform}"
               + ",vrr,${toString m.vrr}"
             else
@@ -81,6 +81,10 @@
             # workspaces with a config.monitors assignment
             if toString ws == m.workspace then
               "${toString ws}, monitor:${m.name}, default:true, persistent:true"
+            else
+            # workspace is in a config.monitors.workspaces list
+            if builtins.elem (toString ws) m.workspaces then
+              "${toString ws}, monitor:${m.name}, persistent:true"
             else
             # workspace 1 is persistent on the primary monitor
             if (ws == 1 || ws == "special") && m.primary == true then
@@ -164,9 +168,9 @@
       # To determine path, run `which foo`
       exec-once = [
         ''${pkgs.waypaper}/bin/waypaper --restore''
-        ''[workspace 1 silent]${pkgs.firefox}/bin/virt-manager''
+        ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
         ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
-        ''[workspace 8 silent]${pkgs.virt-manager}/bin/virt-manager''
+        # ''[workspace 8 silent]${pkgs.virt-manager}/bin/virt-manager''
         # ''[workspace 9 silent]${pkgs.signal-desktop}/bin/signal-desktop''
         # ''[workspace 0 silent]${pkgs.copyq}/bin/copyq''
         # ''[workspace 0 silent]${pkgs.spotify}/bin/spotify''
@@ -247,13 +251,13 @@
         #
         # ========== Workspace Assignments ==========
         #
-        "workspace 8, class:^(virt-manager)$"
+        # "workspace 8, class:^(virt-manager)$"
         "workspace 1, class:^(obsidian)$"
-        "workspace 9, class:^(brave-browser)$"
-        "workspace 9, class:^(signal)$"
-        "workspace 9, class:^(org.telegram.desktop)$"
-        "workspace 9, class:^(discord)$"
-        "workspace 0, title:^([Ss]potify*)$"
+        # "workspace 9, class:^(brave-browser)$"
+        # "workspace 9, class:^(signal)$"
+        # "workspace 9, class:^(org.telegram.desktop)$"
+        "workspace 6, class:^(discord)$"
+        # "workspace 0, title:^([Ss]potify*)$"
       ];
 
       # load at the end of the hyperland set

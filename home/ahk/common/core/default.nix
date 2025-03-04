@@ -87,7 +87,7 @@
         # fd # tree style ls
         # findutils # find
         # fzf # fuzzy search
-        # jq # json pretty printer and manipulator
+        jq # json pretty printer and manipulator
         # nix-tree # nix package tree viewer
         # neofetch # fancier system info than pfetch
         # ncdu # TUI disk usage
