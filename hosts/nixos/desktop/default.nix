@@ -53,6 +53,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+  boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

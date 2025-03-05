@@ -13,12 +13,6 @@
     ./wlogout.nix
   ];
   
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      networkmanagerapplet
-      ;
-  };
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd = {
@@ -170,12 +164,15 @@
       #
       # ========== Auto Launch ==========
       #
+      
+      # NOTE: This is defined in /home/ahk/<host>.nix
+
       # exec-once = ''${startupScript}/path'';
       # To determine path, run `which foo`
-      exec-once = [
-        ''${pkgs.waypaper}/bin/waypaper --restore''
-        ''${pkgs.networkmanagerapplet}/bin/nm-applet --indicator''
-        ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
+      # exec-once = [
+      #   ''${pkgs.waypaper}/bin/waypaper --restore''
+      #   ''${pkgs.networkmanagerapplet}/bin/nm-applet --indicator''
+      #   ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
         # ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
         # ''[workspace 8 silent]${pkgs.virt-manager}/bin/virt-manager''
         # ''[workspace 9 silent]${pkgs.signal-desktop}/bin/signal-desktop''
@@ -183,7 +180,8 @@
         # ''[workspace 0 silent]${pkgs.spotify}/bin/spotify''
         # ''[workspace special silent]${pkgs.yubioath-flutter}/bin/yubioath-flutter''
         # ''[workspace special silent]${pkgs.keymapp}/bin/keymapp''
-      ];
+      # ];
+
       #
       # ========== Layer Rules ==========
       #
@@ -259,11 +257,11 @@
         # ========== Workspace Assignments ==========
         #
         # "workspace 8, class:^(virt-manager)$"
-        "workspace 1, class:^(obsidian)$"
+        # "workspace 1, class:^(obsidian)$"
         # "workspace 9, class:^(brave-browser)$"
         # "workspace 9, class:^(signal)$"
         # "workspace 9, class:^(org.telegram.desktop)$"
-        "workspace 6, class:^(discord)$"
+        # "workspace 6, class:^(discord)$"
         # "workspace 0, title:^([Ss]potify*)$"
       ];
 

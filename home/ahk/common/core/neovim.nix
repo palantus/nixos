@@ -43,6 +43,7 @@
     binds.whichKey.enable = true;
     git.gitsigns.enable = true;
     useSystemClipboard = true;
+    terminal.toggleterm.enable = true;
     terminal.toggleterm.lazygit.enable = true;
     ui.noice.enable = true;
     notes.todo-comments.enable = true;

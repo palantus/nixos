@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     #
@@ -24,6 +24,12 @@
     # common/optional/sops.nix
   ];
 
+  wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
+        ''${pkgs.waypaper}/bin/waypaper --restore''
+
+        ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
+        ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
+  ];
 
   #
   # ========== Host-specific Monitor Spec ==========
