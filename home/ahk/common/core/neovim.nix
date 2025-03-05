@@ -122,6 +122,12 @@
         action = "<C-w><C-k>"; # Move focus to window up
         silent = true;
       }
+      {
+        key = "<leader><leader>";
+        mode = ["n"];
+        action = ":Telescope buffers<CR>"; # Show buffers
+        silent = true;
+      }
     ];
   };
 }
