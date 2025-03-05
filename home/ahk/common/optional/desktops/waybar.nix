@@ -32,6 +32,7 @@
           "pulseaudio"
           #"mpd"
           # "network"
+          "battery"
           "clock#date"
           "clock#time"
         ];
