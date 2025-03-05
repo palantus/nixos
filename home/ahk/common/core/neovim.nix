@@ -87,9 +87,9 @@
       {
         key = "\\";
         mode = ["n"];
-        action = ":Neotree toggle<CR>";
+        action = ":Neotree reveal<CR>";
         silent = true;
-        desc = "Quit";
+        desc = "Neotree";
       }
       {
         key = "<Esc>";
@@ -97,6 +97,30 @@
         action = ":nohlsearch<CR>"; # Clear search highlight
         silent = true;
         # desc = "Quit";
+      }
+      {
+        key = "<C-h>";
+        mode = ["n"];
+        action = "<C-w><C-h>"; # Move focus to window to the left
+        silent = true;
+      }
+      {
+        key = "<C-l>";
+        mode = ["n"];
+        action = "<C-w><C-l>"; # Move focus to window to the right
+        silent = true;
+      }
+      {
+        key = "<C-j>";
+        mode = ["n"];
+        action = "<C-w><C-j>"; # Move focus to window down
+        silent = true;
+      }
+      {
+        key = "<C-k>";
+        mode = ["n"];
+        action = "<C-w><C-k>"; # Move focus to window up
+        silent = true;
       }
     ];
   };
