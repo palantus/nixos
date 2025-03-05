@@ -33,10 +33,10 @@
   };
 
   wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
-        ''${pkgs.waypaper}/bin/waypaper --restore''
-        ''${pkgs.networkmanagerapplet}/bin/nm-applet --indicator''
+        ''${waypaper}/bin/waypaper --restore''
+        ''${networkmanagerapplet}/bin/nm-applet --indicator''
 
-        ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
+        ''[workspace 1 silent]${firefox}/bin/firefox''
   ];
 
 

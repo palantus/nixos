@@ -25,10 +25,10 @@
   ];
 
   wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
-        ''${pkgs.waypaper}/bin/waypaper --restore''
+        ''${waypaper}/bin/waypaper --restore''
 
-        ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
-        ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
+        ''[workspace 1 silent]${firefox}/bin/firefox''
+        ''[workspace 1 silent]${obsidian}/bin/obsidian''
   ];
 
   #
