@@ -12,6 +12,12 @@
     ./hyprlock.nix
     ./wlogout.nix
   ];
+  
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      networkmanagerapplet
+      ;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -168,6 +174,7 @@
       # To determine path, run `which foo`
       exec-once = [
         ''${pkgs.waypaper}/bin/waypaper --restore''
+        ''${pkgs.networkmanagerapplet}/bin/nm-applet''
         ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
         # ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
         # ''[workspace 8 silent]${pkgs.virt-manager}/bin/virt-manager''

@@ -31,7 +31,7 @@
           "gamemode"
           "pulseaudio"
           #"mpd"
-         # "network"
+          # "network"
           "clock#date"
           "clock#time"
         ];
