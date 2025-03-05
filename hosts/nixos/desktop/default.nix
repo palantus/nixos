@@ -46,13 +46,6 @@
     hostName = "desktop";
   };
 
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     "root" = import ./home-root.nix;
-  #     "ahk" = import ./home-ahk.nix;
-  #   };
-  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -60,58 +53,12 @@
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
-  # networking.hostName = "ahk-desktop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  nix.settings = {
-    substituters = [
-      "https://hyprland.cachix.org"
-      "https://helix.cachix.org"
-    ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-    ];
-    experimental-features = [ "nix-command" "flakes" ];
-  };
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = false;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "da_DK.UTF-8";
-    LC_IDENTIFICATION = "da_DK.UTF-8";
-    LC_MEASUREMENT = "da_DK.UTF-8";
-    LC_MONETARY = "da_DK.UTF-8";
-    LC_NAME = "da_DK.UTF-8";
-    LC_NUMERIC = "da_DK.UTF-8";
-    LC_PAPER = "da_DK.UTF-8";
-    LC_TELEPHONE = "da_DK.UTF-8";
-    LC_TIME = "da_DK.UTF-8";
-  };
-
-  fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts.hack
-    fira-code
-    fira-code-symbols
-    font-awesome
-    liberation_ttf
-    mplus-outline-fonts.githubRelease
-    noto-fonts
-    noto-fonts-emoji
-    proggyfonts
-  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -154,16 +101,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.ahk = {
-  #   isNormalUser = true;
-  #   description = "Anders Kristiansen";
-  #   extraGroups = [ "networkmanager" "wheel" ];
-  #   packages = with pkgs; [
-  #   #  thunderbird
-  #   ];
-  # };
-
   # Install firefox.
   # programs.firefox.enable = true;
   programs.steam.enable = true;
@@ -171,33 +108,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-    # home-manager
-    # git
-    waybar
-    dunst
-    ghostty
-    rofi-wayland
-    # networkmanagerapplet
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  
   stylix = {
     enable = true;
     image = (lib.custom.relativeToRoot "assets/wallpapers/zen-01.png");

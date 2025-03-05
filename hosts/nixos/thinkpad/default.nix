@@ -2,36 +2,58 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = lib.flatten [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-    ];
+      inputs.stylix.nixosModules.stylix
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "root" = import ./home-root.nix;
-      "ahk" = import ./home-ahk.nix;
-    };
+      (map lib.custom.relativeToRoot [
+        "hosts/common/core"
+
+        #
+        # ========== Optional Configs ==========
+        #
+        # "hosts/common/optional/services/greetd.nix" # display manager
+        # "hosts/common/optional/services/openssh.nix" # allow remote SSH access
+        # "hosts/common/optional/services/printing.nix" # CUPS
+        # "hosts/common/optional/audio.nix" # pipewire and cli controls
+        "hosts/common/optional/libvirt.nix" # vm tools
+        # "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
+        "hosts/common/optional/hyprland.nix" # window manager
+        # "hosts/common/optional/neovim.nix" # neovim nvf
+        # "hosts/common/optional/msmtp.nix" # for sending email notifications
+        # "hosts/common/optional/nvtop.nix" # GPU monitor (not available in home-manager)
+        # "hosts/common/optional/obsidian.nix" # wiki
+        # "hosts/common/optional/plymouth.nix" # fancy boot screen
+        # "hosts/common/optional/protonvpn.nix" # vpn
+        # "hosts/common/optional/scanning.nix" # SANE and simple-scan
+        # "hosts/common/optional/thunar.nix" # file manager
+        "hosts/common/optional/vlc.nix" # media player
+        "hosts/common/optional/wayland.nix" # wayland components and pkgs not available in home-manager
+        # "hosts/common/optional/yubikey.nix" # yubikey related packages and configs
+        # "hosts/common/optional/zsa-keeb.nix" # Moonlander keeb flashing stuff
+      ])
+    ];
+  
+  #
+  # ========== Host Specification ==========
+  #
+
+  hostSpec = {
+    hostName = "thinkpad";
+    wifi = lib.mkForce true;
   };
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
-  networking.hostName = "ahk-thinkpad"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    experimental-features = [ "nix-command" "flakes" ];
-  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -40,36 +62,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "da_DK.UTF-8";
-    LC_IDENTIFICATION = "da_DK.UTF-8";
-    LC_MEASUREMENT = "da_DK.UTF-8";
-    LC_MONETARY = "da_DK.UTF-8";
-    LC_NAME = "da_DK.UTF-8";
-    LC_NUMERIC = "da_DK.UTF-8";
-    LC_PAPER = "da_DK.UTF-8";
-    LC_TELEPHONE = "da_DK.UTF-8";
-    LC_TIME = "da_DK.UTF-8";
-  };
-
-  fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts.hack
-    fira-code
-    fira-code-symbols
-    font-awesome
-    liberation_ttf
-    mplus-outline-fonts.githubRelease
-    noto-fonts
-    noto-fonts-emoji
-    proggyfonts
-  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -77,16 +69,6 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    # withUWSM = true; # recommended for most users
-    # xwayland.enable = true; # Xwayland can be disabled.
-    # set the flake package
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # make sure to also set the portal package, so that they are in sync
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -117,35 +99,10 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ahk = {
-    isNormalUser = true;
-    description = "Anders Kristiansen";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    home-manager
-    git
-    waybar
-    dunst
-    ghostty
-    rofi-wayland
-    networkmanagerapplet
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions
