@@ -91,10 +91,45 @@ let
           echo "All monitors are now on."
       fi    '';
   };
+  
+      # Toggle all non-primary monitors
+  #dpms standby seems to be working but if monitor wakeup is too sensitive for gaming, can try suspend or off instead
+  toggleMonitorsPrimary = pkgs.writeShellApplication {
+    name = "toggleMonitorsPrimary";
+    text = ''
+      #!/bin/bash
+
+      # Define your primary monitor (the one you want to keep on)
+      PRIMARY_MONITOR="${primaryMonitor.name}"  # Replace with your primary monitor name
+
+      # Function to get all monitor names
+      get_all_monitors() {
+          hyprctl monitors -j | jq -r '.[].name'
+      }
+
+      # If all monitors are on, put all except primary into standby
+      for monitor in $(get_all_monitors); do
+          state=$(hyprctl monitors -j | jq -r ".[] | select(.name == \"$monitor\") | .dpmsStatus")
+          if [ "$state" == "true" ]; then
+              if [ "$monitor" == "$PRIMARY_MONITOR" ]; then
+                  hyprctl dispatch dpms standby "$monitor"
+                  echo "$PRIMARY_MONITOR is now in standby mode."
+              fi
+          else
+              if [ "$monitor" == "$PRIMARY_MONITOR" ]; then
+                  hyprctl dispatch dpms on "$monitor"
+                  echo "$PRIMARY_MONITOR is now on."
+              fi
+          fi
+      done
+      echo "All monitors except $PRIMARY_MONITOR are now in standby mode."
+      '';
+  };
 in
 {
   home.packages = [
     toggleMonitors
     toggleMonitorsNonPrimary
+    toggleMonitorsPrimary
   ];
 }

@@ -196,7 +196,7 @@
         #
         # ========== Monitors==========
         #
-        "SUPER, m, exec, toggleMonitors"
+        "SUPER, m, exec, toggleMonitorsPrimary"
         "SUPER, n, exec, toggleMonitorsNonPrimary"
 
         "SUPER, mouse_up, workspace, e+1"
