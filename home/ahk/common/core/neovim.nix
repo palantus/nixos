@@ -9,6 +9,19 @@
     inputs.nvf.homeManagerModules.default
   ];
   
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      lazygit
+      zig
+      unzip
+      nodejs
+      rustc
+      cargo
+      fzf
+      ripgrep
+      ;
+  };
+  
   programs.nvf = {
     enable = true;
   };

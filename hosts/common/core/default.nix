@@ -38,7 +38,8 @@
 
   networking.hostName = config.hostSpec.hostName;
   networking.wireless.enable = config.hostSpec.wifi;  # Enables wireless support via wpa_supplicant.
-  
+  networking.wireless.userControlled.enable = config.hostSpec.wifi;
+
   nix.settings = {
     substituters = [
       "https://hyprland.cachix.org"
