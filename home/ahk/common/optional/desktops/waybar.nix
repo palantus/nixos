@@ -18,6 +18,7 @@
         layer = "top";
         position = "top";
         height = 36; # 36 is the minimum height required by the modules
+        spacing = 10;
 
         output = (map (m: "${m.name}") (config.monitors));
 
@@ -26,13 +27,13 @@
         ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
+          "tray"
           "gamemode"
           "pulseaudio"
           #"mpd"
-          "tray"
          # "network"
-          "clock#time"
           "clock#date"
+          "clock#time"
         ];
 
         #
@@ -55,7 +56,7 @@
         };
         "clock#date" = {
           interval = 10;
-          format = "{:%d.%b.%y.%a}";
+          format = "{:%a %d. %b %Y}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         "gamemode" = {
