@@ -1,8 +1,9 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
-}:
+}: 
 {
   imports = [
     inputs.nvf.homeManagerModules.default
@@ -31,6 +32,11 @@
     useSystemClipboard = true;
     terminal.toggleterm.lazygit.enable = true;
     ui.noice.enable = true;
+    notes.todo-comments.enable = true;
+    mini.basics.enable = true;
+    mini.ai.enable = true;
+    mini.surround.enable = true;
+    mini.statusline.enable = true;
 
     languages = {
       enableLSP = true;
@@ -42,6 +48,11 @@
       rust.enable = true;
       css.enable = true;
       html.enable = true;
+    };
+
+    binds.whichKey.register = {
+      "<leader>f" = "Find";
+      # "\\" = "File tree";
     };
 
     keymaps = [
