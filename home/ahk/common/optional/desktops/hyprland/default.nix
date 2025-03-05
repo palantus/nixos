@@ -169,7 +169,7 @@
       exec-once = [
         ''${pkgs.waypaper}/bin/waypaper --restore''
         ''[workspace 1 silent]${pkgs.firefox}/bin/firefox''
-        ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
+        # ''[workspace 1 silent]${pkgs.obsidian}/bin/obsidian''
         # ''[workspace 8 silent]${pkgs.virt-manager}/bin/virt-manager''
         # ''[workspace 9 silent]${pkgs.signal-desktop}/bin/signal-desktop''
         # ''[workspace 0 silent]${pkgs.copyq}/bin/copyq''

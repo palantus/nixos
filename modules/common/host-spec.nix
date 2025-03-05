@@ -30,6 +30,11 @@
       type = lib.types.attrsOf lib.types.anything;
       description = "An attribute set of networking information";
     };
+    networkmanager = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable or disable networkmanager";
+    };
     wifi = lib.mkOption {
       type = lib.types.bool;
       default = false;

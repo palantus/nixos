@@ -36,9 +36,18 @@
       ;
   };
 
+  networking.networkmanager.enable = config.hostSpec.networkmanager;
   networking.hostName = config.hostSpec.hostName;
-  networking.wireless.enable = config.hostSpec.wifi;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.userControlled.enable = config.hostSpec.wifi;
+
+  # The following would require a setup like:
+  # networking.wireless = {
+  #   enable = true;
+  #   networks."mySSID".psk = "myPSK";
+  #   extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
+  # };
+
+  # networking.wireless.enable = config.hostSpec.wifi;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.userControlled.enable = config.hostSpec.wifi;
 
   nix.settings = {
     substituters = [
