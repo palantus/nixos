@@ -77,7 +77,9 @@
     binds.whichKey.register = {
       "<leader>f" = "Find";
       "<leader>h" = "GitSigns";
+      "<leader>g" = "Git";
       "<leader>l" = "LSP actions";
+      "<leader>t" = "Toggle";
     };
 
     keymaps = [
@@ -103,11 +105,18 @@
         desc = "Quit";
       }
       {
-        key = "\\";
+        key = "<leader>tf";
         mode = ["n"];
         action = ":Neotree reveal<CR>";
         silent = true;
-        desc = "Neotree";
+        desc = "Neotree reveal";
+      }
+      {
+        key = "<leader>tt";
+        mode = ["n"];
+        action = ":Neotree toggle<CR>";
+        silent = true;
+        desc = "Neotree toggle";
       }
       {
         key = "<Esc>";
