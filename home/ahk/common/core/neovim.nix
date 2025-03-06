@@ -60,7 +60,7 @@
     mini.ai.enable = true;
     mini.surround.enable = true;
     mini.statusline.enable = true;
-    mini.indentscope.enable = true;
+    # mini.indentscope.enable = true; # Has annoying animations
 
     languages = {
       enableLSP = true;
