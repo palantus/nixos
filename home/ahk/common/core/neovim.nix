@@ -128,25 +128,25 @@
       {
         key = "<C-h>";
         mode = ["n"];
-        action = "<C-w><C-h>"; # Move focus to window to the left
+        action = ":wincmd h<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<C-l>";
         mode = ["n"];
-        action = "<C-w><C-l>"; # Move focus to window to the right
+        action = ":wincmd l<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<C-j>";
         mode = ["n"];
-        action = "<C-w><C-j>"; # Move focus to window down
+        action = ":wincmd j<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<C-k>";
         mode = ["n"];
-        action = "<C-w><C-k>"; # Move focus to window up
+        action = ":wincmd k<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
