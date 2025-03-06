@@ -59,7 +59,7 @@
       # vrr = 1;
       primary = true;
       workspace = "1";
-      workspaces = ["2" "3" "4" "5"]; 
+      workspaces = ["2" "3" "4" "5" "6"]; 
     }
   ];
 }

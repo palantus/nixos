@@ -31,8 +31,10 @@
           "gamemode"
           "pulseaudio"
           #"mpd"
+          # "mpris"
           # "network"
           "battery"
+          # "disk"
           "clock#date"
           "clock#time"
         ];
@@ -81,7 +83,7 @@
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
         "pulseaudio" = {
-          "format" = "{volume}% {icon}";
+          "format" = "{icon}   {volume}%";
           #              "format-source" = "Mic ON";
           #              "format-source-muted" = "Mic OFF";
           "format-bluetooth" = "{volume}% {icon}";

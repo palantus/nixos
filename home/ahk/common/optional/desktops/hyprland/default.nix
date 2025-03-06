@@ -256,12 +256,13 @@
         #
         # ========== Workspace Assignments ==========
         #
-        # "workspace 8, class:^(virt-manager)$"
+        "workspace 2, class:^(virt-manager)$"
         # "workspace 1, class:^(obsidian)$"
         # "workspace 9, class:^(brave-browser)$"
         # "workspace 9, class:^(signal)$"
         # "workspace 9, class:^(org.telegram.desktop)$"
-        # "workspace 6, class:^(discord)$"
+        "workspace 6, class:^(discord)$"
+        "workspace 6, class:^(teams-for-linux)$"
         # "workspace 0, title:^([Ss]potify*)$"
       ];
 
