@@ -51,8 +51,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Needed for OBS studio virtual camera:
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
+
+  # Fix for random network adapter pcie disconnects:
   boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
 
   # Configure network proxy if necessary
