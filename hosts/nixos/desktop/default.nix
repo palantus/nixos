@@ -21,7 +21,7 @@
         # "hosts/common/optional/services/printing.nix" # CUPS
         # "hosts/common/optional/audio.nix" # pipewire and cli controls
         "hosts/common/optional/libvirt.nix" # vm tools
-        # "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
+        "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
         "hosts/common/optional/hyprland.nix" # window manager
         # "hosts/common/optional/neovim.nix" # neovim nvf
         # "hosts/common/optional/msmtp.nix" # for sending email notifications
@@ -59,22 +59,12 @@
   # Fix for random network adapter pcie disconnects:
   boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  # };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -100,13 +90,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Install firefox.
-  # programs.firefox.enable = true;
-  programs.steam.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
