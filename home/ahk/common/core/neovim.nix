@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   pkgs,
   ...
 }: 
@@ -30,6 +29,11 @@
     viAlias = true;
     vimAlias = true;
 
+    options = {
+      tabstop = 2;
+      shiftwidth = 2;
+    };
+
     theme = {
       enable = true;
       name = "tokyonight";
@@ -39,7 +43,12 @@
     statusline.lualine.enable = true;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
-    filetree.neo-tree.enable = true;
+    filetree.neo-tree = {
+      enable = true;
+      setupOpts = {
+        enable_opened_markers = false;
+      };
+    };
     binds.whichKey.enable = true;
     git.gitsigns.enable = true;
     useSystemClipboard = true;
@@ -51,6 +60,7 @@
     mini.ai.enable = true;
     mini.surround.enable = true;
     mini.statusline.enable = true;
+    mini.indentscope.enable = true;
 
     languages = {
       enableLSP = true;
@@ -66,7 +76,8 @@
 
     binds.whichKey.register = {
       "<leader>f" = "Find";
-      # "\\" = "File tree";
+      "<leader>h" = "GitSigns";
+      "<leader>l" = "LSP actions";
     };
 
     keymaps = [
@@ -76,6 +87,13 @@
         action = ":wq<CR>";
         silent = true;
         desc = "Save file and quit";
+      }
+      {
+        key = "<leader>ww";
+        mode = ["n"];
+        action = ":w<CR>";
+        silent = true;
+        desc = "Save file";
       }
       {
         key = "<leader>q";

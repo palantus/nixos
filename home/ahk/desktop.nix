@@ -24,6 +24,8 @@
     # common/optional/sops.nix
   ];
 
+  # Startup programs
+
   wayland.windowManager.hyprland.settings.exec-once = with pkgs; [
         ''${waypaper}/bin/waypaper --restore''
 
