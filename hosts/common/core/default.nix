@@ -151,4 +151,11 @@
   # If there is a conflict file that is backed up, use this extension
   home-manager.backupFileExtension = "bk";
   # home-manager.useUserPackages = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    persistent = true;
+    options = "--delete-older-than 30d";
+  };
 }
