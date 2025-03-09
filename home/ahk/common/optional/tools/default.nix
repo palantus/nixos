@@ -28,11 +28,13 @@
       # blender-hip # -hip variant includes h/w accelrated rendering with AMD RNDA gpus
       gimp
       inkscape
-      obs-studio
 
       # VM and RDP
       remmina
       freerdp
+
+
+      obsidian
       ;
   };
   #Disabled for now. grimblast

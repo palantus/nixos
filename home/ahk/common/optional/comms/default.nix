@@ -10,6 +10,7 @@
       discord
       # slack
       teams-for-linux
+      obs-studio
       ;
   };
 }

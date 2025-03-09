@@ -68,7 +68,8 @@
     udiskie
     udisks
     wget
-    # neovim
+    unzip
+   # neovim
   ];
   
   # Set your time zone.

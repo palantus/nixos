@@ -13,6 +13,7 @@
     common/optional/desktops # default is hyprland
     common/optional/development
     common/optional/comms
+    common/optional/terminals
     # common/optional/helper-scripts
     # common/optional/gaming
     # common/optional/media
@@ -20,7 +21,6 @@
     #
     # common/optional/atuin.nix
     common/optional/xdg.nix # file associations
-    common/optional/temp.nix # TODO: move
     # common/optional/sops.nix
   ];
 
