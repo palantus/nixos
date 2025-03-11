@@ -2,14 +2,14 @@
   inputs,
   pkgs,
   ...
-}: 
-{
+}: {
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
-  
+
   home.packages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       lazygit
       zig
       unzip
@@ -20,7 +20,7 @@
       ripgrep
       ;
   };
-  
+
   programs.nvf = {
     enable = true;
   };
@@ -66,8 +66,13 @@
       enableLSP = true;
       enableTreesitter = true;
       enableFormat = true;
-      
+
       nix.enable = true;
+      nix.format = {
+        enable = true;
+        type = "nixfmt";
+      };
+      nix.lsp.enable = true;
       ts.enable = true;
       rust.enable = true;
       css.enable = true;
