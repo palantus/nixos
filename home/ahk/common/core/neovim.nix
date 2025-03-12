@@ -116,9 +116,76 @@
       "<leader>g" = "Git";
       "<leader>l" = "LSP actions";
       "<leader>t" = "Toggle";
+      "<leader>a" = "Avante";
+      "<leader>o" = "Harpoon";
     };
 
     keymaps = [
+      # Harpoon keymaps
+      {
+        key = "<leader>oa";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():append() end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon add file";
+      }
+      {
+        key = "<leader>ol";
+        mode = [ "n" ];
+        action = "function() local harpoon = require('harpoon') harpoon.ui:toggle_quick_menu(harpoon:list()) end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon list";
+      }
+      {
+        key = "<leader>o1";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():select(1) end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon file 1";
+      }
+      {
+        key = "<leader>o2";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():select(2) end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon file 2";
+      }
+      {
+        key = "<leader>o3";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():select(3) end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon file 3";
+      }
+      {
+        key = "<leader>o4";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():select(4) end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon file 4";
+      }
+      {
+        key = "<leader>op";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():prev() end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon prev file";
+      }
+      {
+        key = "<leader>on";
+        mode = [ "n" ];
+        action = "function() require('harpoon'):list():next() end";
+        lua = true;
+        silent = true;
+        desc = "Harpoon next file";
+      }
       {
         key = "<leader>wq";
         mode = [ "n" ];
