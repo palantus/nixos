@@ -38,7 +38,7 @@
 
         ''[workspace 1 silent]${firefox}/bin/firefox''
   ];
-  wayland.windowManager.hyprland.settings.input.kb_layout = "dk-latin1";
+  wayland.windowManager.hyprland.settings.input.kb_layout = "dk";
 
 
   #
