@@ -61,7 +61,7 @@ in
 
       #      bindkey '^I' forward-word         # tab
       #      bindkey '^[[Z' backward-word      # shift+tab
-      #      bindkey '^ ' autosuggest-accept   # ctrl+space
+      bindkey '^Y' autosuggest-accept   # ctrl+space
     '';
 
     shellAliases = {
