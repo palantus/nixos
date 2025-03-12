@@ -8,11 +8,11 @@
     allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
   };
   # Enable WireGuard
-  networking.wireguard.interfaces = {
+  networking.wg-quick.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      ips = [ "10.8.0.3/24" ];
+      address = [ "10.8.0.3/24" ];
       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
       dns = [ "192.168.0.223" ];
 
