@@ -13,10 +13,10 @@
       "modules/home"
     ])
     # ./nixos.nix
-    # ./zsh
+    ./zsh
     # ./nixvim
     # ./bash.nix
-    # ./bat.nix
+    ./bat.nix
     # ./direnv.nix
     # ./fonts.nix
     # ./git.nix
@@ -42,7 +42,7 @@
     ];
     sessionVariables = {
       FLAKE = "$HOME/src/nix/nix-config";
-      SHELL = "bash";
+      SHELL = "zsh";
       TERM = "ghostty";
       TERMINAL = "ghostty";
       VISUAL = "nvim";
@@ -80,24 +80,24 @@
       inherit (pkgs)
 
         # Packages that don't have custom configs go here
-        # btop # resource monitor
+        btop # resource monitor
         copyq # clipboard manager
         # coreutils # basic gnu utils
         curl
-        # eza # ls replacement
+        eza # ls replacement
         # dust # disk usage
         # fd # tree style ls
         # findutils # find
         # fzf # fuzzy search
         jq # json pretty printer and manipulator
-        # nix-tree # nix package tree viewer
+        nix-tree # nix package tree viewer
         # neofetch # fancier system info than pfetch
         # ncdu # TUI disk usage
         # pciutils
         # pfetch # system info
         # pre-commit # git hooks
         # p7zip # compression & encryption
-        # ripgrep # better grep
+        ripgrep # better grep
         # steam-run # for running non-NixOS-packaged binaries on Nix
         usbutils
         # tree # cli dir tree viewer

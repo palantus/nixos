@@ -14,7 +14,7 @@ in
 {
   users.users.${hostSpec.username} = {
     name = hostSpec.username;
-    shell = pkgs.bash; # default shell
+    shell = pkgs.zsh; # default shell
     home = "/home/${hostSpec.username}";
     isNormalUser = true;
 
@@ -35,6 +35,7 @@ in
     # openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
   };
 
+  programs.zsh.enable = true;
   environment.systemPackages = [
     pkgs.rsync
   ];

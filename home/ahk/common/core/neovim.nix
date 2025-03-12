@@ -16,7 +16,7 @@
       nodejs
       rustc
       cargo
-      fzf
+      # fzf
       ripgrep
       ;
   };
