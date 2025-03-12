@@ -41,7 +41,18 @@
     };
 
     statusline.lualine.enable = true;
-    telescope.enable = true;
+    telescope = {
+      enable = true;
+      setupOpts = {
+        pickers = {
+          buffers = {
+            sort_lastused = true;
+            theme = "dropdown";
+            previewer = false;
+          };
+        };
+      };
+    };
     autocomplete.nvim-cmp.enable = true;
     filetree.neo-tree = {
       enable = true;
