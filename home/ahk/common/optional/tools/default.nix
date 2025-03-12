@@ -14,7 +14,7 @@
       # drawio
       grimblast
       libreoffice
-      tmux
+      # tmux
 
       # Privacy
       #veracrypt

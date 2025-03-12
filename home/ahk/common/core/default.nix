@@ -25,6 +25,7 @@
     # ./ssh.nix
     # ./zoxide.nix
     ./neovim.nix
+    ./tmux.nix
   ];
 
   inherit hostSpec;

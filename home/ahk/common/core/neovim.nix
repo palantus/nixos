@@ -2,14 +2,14 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
 
   home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
       lazygit
       zig
       unzip
@@ -79,6 +79,26 @@
       html.enable = true;
     };
 
+    extraPlugins = with pkgs.vimPlugins; {
+      avante-nvim = {
+        package = avante-nvim;
+        setup = "require('avante').setup{}";
+      };
+      aerial = {
+        package = aerial-nvim;
+        setup = "require('aerial').setup {}";
+      };
+      harpoon2 = {
+        package = harpoon2;
+        setup = "require('harpoon').setup {}";
+        after = [ "aerial" ]; # place harpoon configuration after aerial
+      };
+      vim-tmux-navigator = {
+        package = vim-tmux-navigator;
+        # setup = "require('vim-tmux-navigator').setup {}";
+      };
+    };
+
     binds.whichKey.register = {
       "<leader>f" = "Find";
       "<leader>h" = "GitSigns";
@@ -90,73 +110,97 @@
     keymaps = [
       {
         key = "<leader>wq";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":wq<CR>";
         silent = true;
         desc = "Save file and quit";
       }
       {
         key = "<leader>ww";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":w<CR>";
         silent = true;
         desc = "Save file";
       }
       {
         key = "<leader>q";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":q<CR>";
         silent = true;
         desc = "Quit";
       }
       {
         key = "<leader>tf";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":Neotree reveal<CR>";
         silent = true;
         desc = "Neotree reveal";
       }
       {
         key = "<leader>tt";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":Neotree toggle<CR>";
         silent = true;
         desc = "Neotree toggle";
       }
       {
         key = "<Esc>";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":nohlsearch<CR>"; # Clear search highlight
         silent = true;
         # desc = "Quit";
       }
+      # {
+      #   key = "<C-h>";
+      #   mode = [ "n" ];
+      #   action = ":wincmd h<CR>"; # Move focus to window to the left
+      #   silent = true;
+      # }
+      # {
+      #   key = "<C-l>";
+      #   mode = [ "n" ];
+      #   action = ":wincmd l<CR>"; # Move focus to window to the left
+      #   silent = true;
+      # }
+      # {
+      #   key = "<C-j>";
+      #   mode = [ "n" ];
+      #   action = ":wincmd j<CR>"; # Move focus to window to the left
+      #   silent = true;
+      # }
+      # {
+      #   key = "<C-k>";
+      #   mode = [ "n" ];
+      #   action = ":wincmd k<CR>"; # Move focus to window to the left
+      #   silent = true;
+      # }
       {
         key = "<C-h>";
-        mode = ["n"];
-        action = ":wincmd h<CR>"; # Move focus to window to the left
+        mode = [ "n" ];
+        action = ":TmuxNavigateLeft<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<C-l>";
-        mode = ["n"];
-        action = ":wincmd l<CR>"; # Move focus to window to the left
+        mode = [ "n" ];
+        action = ":TmuxNavigateRight<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<C-j>";
-        mode = ["n"];
-        action = ":wincmd j<CR>"; # Move focus to window to the left
+        mode = [ "n" ];
+        action = ":TmuxNavigateDown<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<C-k>";
-        mode = ["n"];
-        action = ":wincmd k<CR>"; # Move focus to window to the left
+        mode = [ "n" ];
+        action = ":TmuxNavigateUp<CR>"; # Move focus to window to the left
         silent = true;
       }
       {
         key = "<leader><leader>";
-        mode = ["n"];
+        mode = [ "n" ];
         action = ":Telescope buffers<CR>"; # Show buffers
         silent = true;
       }
