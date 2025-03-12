@@ -21,7 +21,7 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile = "/home/ahk/.wg_key";
+      privateKeyFile = "/root/wireguard/privatekey";
 
       peers = [
         # For a client configuration, one peer entry for the server will suffice.
@@ -29,6 +29,7 @@
         {
           # Public key of the server (not a file path).
           publicKey = "MPggwBdaIoaiI06BsNQwEq2CpGz9dBstj1DmbyA2hxw=";
+          presharedKeyFile = "/root/wireguard/preshared";
 
           # Forward all the traffic via VPN.
           allowedIPs = [ "0.0.0.0/0" ];
