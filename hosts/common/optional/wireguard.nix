@@ -14,6 +14,7 @@
       # Determines the IP address and subnet of the client's end of the tunnel interface.
       ips = [ "10.8.0.3/24" ];
       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+      dns = [ "192.168.0.223" ];
 
       # Path to the private key file.
       #
