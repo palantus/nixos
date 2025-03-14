@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, ... }:
 {
   # environment.systemPackages = [
   #   pkgs.wireguard # screen capture component, required by flameshot
@@ -12,7 +12,7 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      address = [ "10.8.0.3/24" ];
+      address = [ config.hostSpec.wireguardIP ];
       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
       dns = [ "192.168.0.223" ];
 
@@ -37,7 +37,7 @@
           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
           # Set this to the server IP and port.
-          endpoint = "ahk.dk:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+          endpoint = "62.66.209.34:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
 
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;

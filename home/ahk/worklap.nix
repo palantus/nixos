@@ -18,7 +18,6 @@
     # common/optional/gaming
     # common/optional/media
     common/optional/tools
-    common/optional/vpn
     #
     # common/optional/atuin.nix
     common/optional/xdg.nix # file associations
@@ -52,9 +51,9 @@
 
   monitors = [
     {
-      name = "LVDS-1";
-      width = 1600;
-      height = 900;
+      name = "eDP-1";
+      width = 1920;
+      height = 1200;
       refreshRate = 60;
       x = 0;
       y = 0;

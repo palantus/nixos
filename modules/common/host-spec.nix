@@ -134,6 +134,11 @@
       default = "1";
       description = "Used to indicate what scaling to use. Floating point number";
     };
+    wireguardIP = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "IP address assigned thorough wireguard";
+    };
   };
 
   config = {

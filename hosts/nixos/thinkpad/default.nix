@@ -47,6 +47,7 @@
     hostName = "thinkpad";
     wifi = lib.mkForce true;
     networkmanager = true;
+    wireguardIP = "10.8.0.3/24";
   };
 
   # Bootloader.

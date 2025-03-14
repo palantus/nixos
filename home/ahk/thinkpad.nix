@@ -18,7 +18,6 @@
     # common/optional/gaming
     # common/optional/media
     common/optional/tools
-    common/optional/vpn
     #
     # common/optional/atuin.nix
     common/optional/xdg.nix # file associations

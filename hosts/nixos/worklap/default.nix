@@ -47,6 +47,7 @@
     hostName = "worklap";
     wifi = lib.mkForce true;
     networkmanager = true;
+    wireguardIP = "10.8.0.4/24";
   };
 
   # Bootloader.
