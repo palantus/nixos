@@ -26,22 +26,25 @@ in
     history.size = 10000;
     history.share = true;
 
-    plugins =
-      [
-        # {
-        #   name = "powerlevel10k-config";
-        #   src = ./p10k;
-        #   file = "p10k.zsh.theme";
-        # }
-        # {
-        #   name = "zsh-powerlevel10k";
-        #   src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
-        #   file = "powerlevel10k.zsh-theme";
-        # }
-      ];
+    plugins = [
+      # {
+      #   name = "powerlevel10k-config";
+      #   src = ./p10k;
+      #   file = "p10k.zsh.theme";
+      # }
+      # {
+      #   name = "zsh-powerlevel10k";
+      #   src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
+      #   file = "powerlevel10k.zsh-theme";
+      # }
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
-    initExtraFirst = ''
-    '';
+    initExtraFirst = '''';
 
     initExtra = ''
       # autoSuggestions config
