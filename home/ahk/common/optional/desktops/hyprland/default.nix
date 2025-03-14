@@ -261,6 +261,7 @@
         # "workspace 9, class:^(brave-browser)$"
         # "workspace 9, class:^(signal)$"
         # "workspace 9, class:^(org.telegram.desktop)$"
+        "workspace 5, title:^(Steam)$"
         "workspace 6, class:^(discord)$"
         "workspace 6, class:^(teams-for-linux)$"
         # "workspace 0, title:^([Ss]potify*)$"
