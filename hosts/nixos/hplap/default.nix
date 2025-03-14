@@ -20,8 +20,8 @@
         # "hosts/common/optional/services/openssh.nix" # allow remote SSH access
         # "hosts/common/optional/services/printing.nix" # CUPS
         # "hosts/common/optional/audio.nix" # pipewire and cli controls
-        "hosts/common/optional/libvirt.nix" # vm tools
-        # "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
+        # "hosts/common/optional/libvirt.nix" # vm tools
+        "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
         "hosts/common/optional/de.nix" # desktop environment (gdm + x server)
         "hosts/common/optional/gnome.nix" # window manager
         "hosts/common/optional/hyprland.nix" # window manager
@@ -45,10 +45,10 @@
   #
 
   hostSpec = {
-    hostName = "thinkpad";
+    hostName = "hplap";
     wifi = lib.mkForce true;
     networkmanager = true;
-    wireguardIP = "10.8.0.3/24";
+    # wireguardIP = "10.8.0.3/24";
   };
 
   # Bootloader.
