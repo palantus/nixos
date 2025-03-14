@@ -22,6 +22,8 @@
         # "hosts/common/optional/audio.nix" # pipewire and cli controls
         "hosts/common/optional/libvirt.nix" # vm tools
         "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
+        "hosts/common/optional/de.nix" # desktop environment (gdm + x server)
+        "hosts/common/optional/gnome.nix" # window manager
         "hosts/common/optional/hyprland.nix" # window manager
         # "hosts/common/optional/neovim.nix" # neovim nvf
         # "hosts/common/optional/msmtp.nix" # for sending email notifications
@@ -47,7 +49,6 @@
     networkmanager = false;
   };
 
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -58,13 +59,6 @@
 
   # Fix for random network adapter pcie disconnects:
   boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -85,10 +79,6 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Allow unfree packages
