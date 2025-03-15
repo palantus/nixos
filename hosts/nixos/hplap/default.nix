@@ -14,6 +14,12 @@
         "hosts/common/core"
 
         #
+        # ========== Non-Primary Users to Create ==========
+        #
+        "hosts/common/users/simon"
+        "hosts/common/users/anna"
+
+        #
         # ========== Optional Configs ==========
         #
         # "hosts/common/optional/services/greetd.nix" # display manager
