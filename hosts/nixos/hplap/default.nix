@@ -30,7 +30,7 @@
         "hosts/common/optional/gaming.nix" # steam, gamescope, gamemode, and related hardware
         "hosts/common/optional/de.nix" # desktop environment (gdm + x server)
         "hosts/common/optional/gnome.nix" # window manager
-        "hosts/common/optional/hyprland.nix" # window manager
+        # "hosts/common/optional/hyprland.nix" # window manager
         # "hosts/common/optional/msmtp.nix" # for sending email notifications
         # "hosts/common/optional/nvtop.nix" # GPU monitor (not available in home-manager)
         # "hosts/common/optional/obsidian.nix" # wiki
@@ -39,7 +39,7 @@
         # "hosts/common/optional/scanning.nix" # SANE and simple-scan
         # "hosts/common/optional/thunar.nix" # file manager
         "hosts/common/optional/vlc.nix" # media player
-        "hosts/common/optional/wireguard.nix" # media player
+        # "hosts/common/optional/wireguard.nix" # media player
         "hosts/common/optional/wayland.nix" # wayland components and pkgs not available in home-manager
         # "hosts/common/optional/yubikey.nix" # yubikey related packages and configs
         # "hosts/common/optional/zsa-keeb.nix" # Moonlander keeb flashing stuff
