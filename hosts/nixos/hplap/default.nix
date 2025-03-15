@@ -58,9 +58,11 @@
   };
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+ 
+  boot.initrd.luks.devices."luks-b20ddb1d-7bbc-4a5f-b2ea-d05523b27bd2".device = "/dev/disk/by-uuid/b20ddb1d-7bbc-4a5f-b2ea-d05523b27bd2";
+
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
