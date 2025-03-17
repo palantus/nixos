@@ -19,16 +19,18 @@
     resizeAmount = 10;
     # sensibleOnTop = true;
     # prefix = "C-b";
+    
 
-    plugins = [
-      pkgs.tmuxPlugins.vim-tmux-navigator
-      pkgs.tmuxPlugins.yank
-      # pkgs.tmuxPlugins.tmux-which-key
-      pkgs.tmuxPlugins.sensible
-      pkgs.tmuxPlugins.catppuccin
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+      yank
+      #tmux-which-key
+      sensible
+      catppuccin
     ];
 
     extraConfig = ''
+      set -g renumber-windows on
       set -g @catppuccin_flavour 'mocha'
       bind S command-prompt -p "New Session:" "new-session -A -s '%%'"
       bind K confirm kill-session
