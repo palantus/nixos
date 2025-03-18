@@ -85,7 +85,7 @@
         # coreutils # basic gnu utils
         curl
         eza # ls replacement
-        # dust # disk usage
+        dust # disk usage
         # fd # tree style ls
         # findutils # find
         # fzf # fuzzy search
