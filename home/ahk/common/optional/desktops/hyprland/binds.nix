@@ -118,10 +118,8 @@
         #
         # ========== Screenshotting ==========
         #
-        # TODO check on status of flameshot and multimonitor wayland. as of Oct 2024, it's a clusterfuck
-        # so resorting to grimblast in the meantime
-        #"CTRL_ALT,p,exec,flameshot gui"
-        "CTRL_ALT,p,exec,grimblast --notify --freeze copy area"
+        "CTRL_ALT,p,exec,flameshot gui"
+        # "CTRL_ALT,p,exec,grimblast --notify --freeze copy area"
         ",Print,exec,grimblast --notify --freeze copy area"
 
         #

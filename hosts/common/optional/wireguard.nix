@@ -1,9 +1,5 @@
 { config, ... }:
 {
-  # environment.systemPackages = [
-  #   pkgs.wireguard # screen capture component, required by flameshot
-  # ];
-
   networking.firewall = {
     allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
   };

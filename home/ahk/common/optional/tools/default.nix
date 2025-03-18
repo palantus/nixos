@@ -33,13 +33,11 @@
       remmina
       freerdp
 
-
       obsidian
       ;
   };
-  #Disabled for now. grimblast
-  #  services.flameshot = {
-  #      enable = true;
-  #     package = flameshotGrim;
-  #  };
+
+  services.flameshot = {
+    enable = true;
+  };
 }
