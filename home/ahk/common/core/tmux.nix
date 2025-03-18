@@ -48,6 +48,11 @@
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      # Resize panes with leader + arrow keys
+      bind Up resize-pane -U 20
+      bind Down resize-pane -D 20
+      bind Left resize-pane -L 20
+      bind Right resize-pane -R 20
     '';
   };
 }
