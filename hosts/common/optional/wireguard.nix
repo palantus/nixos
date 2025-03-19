@@ -3,6 +3,8 @@
   networking.firewall = {
     allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
   };
+
+  # Forward ip - necessary for networking to work on virtual machines
   boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
   boot.kernel.sysctl."net.ipv4.conf.default.forwarding" = true;
 
