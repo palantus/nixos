@@ -72,6 +72,8 @@
     mini.surround.enable = true;
     mini.statusline.enable = true;
     # mini.indentscope.enable = true; # Has annoying animations
+    treesitter.context.enable = true;
+    treesitter.fold = true;
 
     languages = {
       enableLSP = true;
@@ -282,6 +284,41 @@
         action = ":Telescope buffers<CR>"; # Show buffers
         silent = true;
       }
+      {
+        key = "<C-d>";
+        mode = [ "n" ];
+        action = "<C-d>zz"; # reset view
+        silent = true;
+      }
+      {
+        key = "<C-u>";
+        mode = [ "n" ];
+        action = "<C-u>zz"; # reset view
+        silent = true;
+      }
+      {
+        key = "n";
+        mode = [ "n" ];
+        action = "nzzzv"; # reset view
+        silent = true;
+      }
+      {
+        key = "N";
+        mode = [ "n" ];
+        action = "Nzzzv"; # reset view
+        silent = true;
+      }
+
+
+
+
+
+# vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+# vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+#
+# -- Reset currenl line to the middle of the screen when scrolling
+# vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
+# vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
     ];
   };
 }
