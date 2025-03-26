@@ -1,12 +1,12 @@
 {
   pkgs,
   lib,
-  config,
+  # config,
   ...
 }:
-let
-  inherit (config.lib.formats.rasi) mkLiteral;
-in
+# let
+#   inherit (config.lib.formats.rasi) mkLiteral;
+# in
 {
   programs.rofi = {
     enable = true;
