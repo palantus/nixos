@@ -1,11 +1,14 @@
 {
   pkgs,
+  lib,
   ...
 }:
 {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    theme = lib.mkForce "fancy";
+    terminal = "ghostty";
 
     extraConfig = {
       show-icons = true;
