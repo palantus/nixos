@@ -10,14 +10,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Theming
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
     # NeoVIM manager (NVF)
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
       inherit (nixpkgs) lib;
@@ -35,8 +36,9 @@
             specialArgs = {
               inherit
                 inputs
-                outputs;
-              
+                outputs
+                ;
+
               # ========== Extend lib with lib.custom ==========
               # NOTE: This approach allows lib.custom to propagate into hm
               # see: https://github.com/nix-community/home-manager/pull/3454
@@ -44,11 +46,10 @@
             };
             modules = [ ./hosts/nixos/${host} ];
           };
-        };
+      };
 
       # Invoke mkHost for each host config that is declared for NixOS
-      mkHostConfigs =
-        hosts: lib.foldl (acc: set: acc // set) { } (lib.map mkHost hosts);
+      mkHostConfigs = hosts: lib.foldl (acc: set: acc // set) { } (lib.map mkHost hosts);
 
       # Return the hosts declared in the given directory
       readHosts = folder: lib.attrNames (builtins.readDir ./hosts/${folder});
@@ -61,7 +62,6 @@
       nixosConfigurations = mkHostConfigs (readHosts "nixos");
     };
 
-          
   #   nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
   #     specialArgs = {inherit inputs;};
   #     modules = [

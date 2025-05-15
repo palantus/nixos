@@ -44,9 +44,9 @@ in
       }
     ];
 
-    initExtraFirst = '''';
+    # initExtraFirst = '''';
 
-    initExtra = ''
+    initContent = ''
       # autoSuggestions config
 
       unsetopt correct # autocorrect commands

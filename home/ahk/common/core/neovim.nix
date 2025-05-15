@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -36,7 +37,7 @@
 
     theme = {
       enable = true;
-      name = "tokyonight";
+      name = lib.mkForce "tokyonight";
       style = "night";
     };
 
@@ -62,7 +63,8 @@
     };
     binds.whichKey.enable = true;
     git.gitsigns.enable = true;
-    useSystemClipboard = true;
+    # useSystemClipboard = true;
+    clipboard.enable = true;
     terminal.toggleterm.enable = true;
     terminal.toggleterm.lazygit.enable = true;
     ui.noice.enable = true;
@@ -75,8 +77,10 @@
     treesitter.context.enable = true;
     treesitter.fold = true;
 
+    lsp.enable = true;
+
     languages = {
-      enableLSP = true;
+      # enableLSP = true;
       enableTreesitter = true;
       enableFormat = true;
 
@@ -309,16 +313,12 @@
         silent = true;
       }
 
-
-
-
-
-# vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
-# vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
-#
-# -- Reset currenl line to the middle of the screen when scrolling
-# vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
-# vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
+      # vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+      # vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+      #
+      # -- Reset currenl line to the middle of the screen when scrolling
+      # vim.keymap.set('n', 'n', 'nzzzv', { noremap = true, silent = true })
+      # vim.keymap.set('n', 'N', 'Nzzzv', { noremap = true, silent = true })
     ];
   };
 }
