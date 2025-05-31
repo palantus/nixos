@@ -9,6 +9,7 @@
     #
     # ========== Host-specific Optional Configs ==========
     #
+    common/optional/3dprint
     common/optional/browsers
     common/optional/desktops # default is hyprland
     common/optional/development

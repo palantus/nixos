@@ -69,6 +69,7 @@
     udisks
     wget
     unzip
+    killall
    # neovim
   ];
   
