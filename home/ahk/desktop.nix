@@ -44,7 +44,7 @@
 
   monitors = [
     {
-      name = "DP-1";
+      name = "DP-2";
       width = 3440;
       height = 1440;
       refreshRate = 100;
@@ -56,7 +56,7 @@
       workspaces = ["2" "3" "4" "5"]; 
     }
     {
-      name = "DP-2";
+      name = "DP-1";
       width = 3840;
       height = 2160;
       refreshRate = 60;
