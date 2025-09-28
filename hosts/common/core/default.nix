@@ -142,7 +142,13 @@
     polarity = "dark";
     # program specific exclusions
     #targets.foo.enable = false;
+    targets.qt = {
+      enable = true;
+      platform = lib.mkForce "qt5ct";
+    };
   };
+
+  qt.platformTheme = "qt5ct";
 
   # Usb disks and mounting
   services.gvfs.enable = true;

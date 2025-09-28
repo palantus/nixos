@@ -15,6 +15,8 @@
 
     # NeoVIM manager (NVF)
     nvf.url = "github:notashelf/nvf";
+
+    hy3.url = "github:outfoxxed/hy3";
   };
 
   outputs =

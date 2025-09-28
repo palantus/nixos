@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
-  #imports = [ ./foo.nix ];
+  imports = [ 
+    ./transmission.nix 
+  ];
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
