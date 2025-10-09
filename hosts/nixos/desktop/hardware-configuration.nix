@@ -27,7 +27,7 @@
   fileSystems."/mnt/pop" = {
     device = "/dev/disk/by-uuid/564f25f5-33a5-45b1-8bbb-45aaf051488b";
     fsType = "auto";
-    options = [ "defaults" "user" "rw" "noauto" ];
+    options = [ "defaults" "user" "rw" ];
   };
 
   swapDevices =
