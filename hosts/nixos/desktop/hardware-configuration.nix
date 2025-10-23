@@ -24,8 +24,8 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt/pop" = {
-    device = "/dev/disk/by-uuid/564f25f5-33a5-45b1-8bbb-45aaf051488b";
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/090be7f4-00f5-4773-a610-16a323af8163";
     fsType = "auto";
     options = [ "defaults" "user" "rw" ];
   };
