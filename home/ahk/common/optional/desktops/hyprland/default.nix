@@ -118,7 +118,8 @@
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         #disable_autoreload = true;
-        new_window_takes_over_fullscreen = 2; # 0 - behind, 1 - takes over, 2 - unfullscreen/unmaxize
+        # new_window_takes_over_fullscreen = 2; # 0 - behind, 1 - takes over, 2 - unfullscreen/unmaxize
+        on_focus_under_fullscreen = 1;
         middle_click_paste = false;
       };
 
@@ -194,7 +195,7 @@
       #
       # ========== Window Rules ==========
       #
-      windowrule = [
+      windowrulev2 = [
         # Dialogs
         "float, title:^(Open File)(.*)$"
         "float, title:^(Select a File)(.*)$"
@@ -203,8 +204,7 @@
         "float, title:^(Save As)(.*)$"
         "float, title:^(Library)(.*)$"
         "float, title:^(Accounts)(.*)$"
-      ];
-      windowrulev2 = [
+
         "float, class:^(galculator)$"
         "float, class:^(waypaper)$"
         #"float, class:^(keymapp)$"
@@ -261,7 +261,7 @@
         # "workspace 9, class:^(brave-browser)$"
         # "workspace 9, class:^(signal)$"
         # "workspace 9, class:^(org.telegram.desktop)$"
-        "workspace 5, title:^(Steam)$"
+        "workspace 5, class:^(steam)$"
         "workspace 6, class:^(discord)$"
         "workspace 6, class:^(teams-for-linux)$"
         # "workspace 0, title:^([Ss]potify*)$"
