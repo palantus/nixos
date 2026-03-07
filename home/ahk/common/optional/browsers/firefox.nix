@@ -5,7 +5,7 @@ in
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      vdhcoapp
+      # vdhcoapp
       ;
   };
   # Inspiration:

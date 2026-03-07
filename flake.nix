@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,7 +15,11 @@
     # NeoVIM manager (NVF)
     nvf.url = "github:notashelf/nvf";
 
-    hy3.url = "github:outfoxxed/hy3";
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.53.0";
+    hy3 = {
+      url = "github:outfoxxed/hy3?ref=hl0.53.0";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =

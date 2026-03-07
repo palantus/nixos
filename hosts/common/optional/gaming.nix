@@ -14,10 +14,10 @@
           pkgs:
           (builtins.attrValues {
             inherit (pkgs.xorg)
-              libXcursor
-              libXi
-              libXinerama
-              libXScrnSaver
+              # libXcursor
+              # libXi
+              # libXinerama
+              # libXScrnSaver
               ;
 
             inherit (pkgs.stdenv.cc.cc)
@@ -31,6 +31,10 @@
               libkrb5
               keyutils
               gperftools
+              libxscrnsaver
+              libxcursor
+              libxi
+              libxinerama
               ;
           });
       };

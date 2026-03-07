@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 
@@ -15,6 +16,7 @@
   
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       enable = true;
       variables = [ "--all" ]; # fix for https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
@@ -27,7 +29,7 @@
     };
 
     plugins = [
-      pkgs.hyprlandPlugins.hy3
+      inputs.hy3.packages.${pkgs.system}.hy3
     ];
 
     settings = {
