@@ -166,4 +166,11 @@
     persistent = true;
     options = "--delete-older-than 30d";
   };
+
+  # This creates /bin/sh and symlinks /usr/bin/sh which many 
+  # non-Nix-native scripts expect.
+  system.activationScripts.usr-bin-sh-setup = ''
+    mkdir -m 0755 -p /usr/bin
+    ln -sfn /bin/sh /usr/bin/sh
+  '';
 }
