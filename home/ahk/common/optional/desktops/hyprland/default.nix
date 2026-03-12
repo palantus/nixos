@@ -197,37 +197,37 @@
       #
       # ========== Window Rules ==========
       #
-      windowrulev2 = [
+      windowrule = [
         # Dialogs
-        "float, title:^(Open File)(.*)$"
-        "float, title:^(Select a File)(.*)$"
-        "float, title:^(Choose wallpaper)(.*)$"
-        "float, title:^(Open Folder)(.*)$"
-        "float, title:^(Save As)(.*)$"
-        "float, title:^(Library)(.*)$"
-        "float, title:^(Accounts)(.*)$"
+        "float true, match:title ^(Open File)(.*)$"
+        "float true, match:title ^(Select a File)(.*)$"
+        "float true, match:title ^(Choose wallpaper)(.*)$"
+        "float true, match:title ^(Open Folder)(.*)$"
+        "float true, match:title ^(Save As)(.*)$"
+        "float true, match:title ^(Library)(.*)$"
+        "float true, match:title ^(Accounts)(.*)$"
 
-        "float, class:^(galculator)$"
-        "float, class:^(waypaper)$"
+        "float true, match:class ^(galculator)$"
+        "float true, match:class ^(waypaper)$"
         #"float, class:^(keymapp)$"
         #"float, class:^(yubioath-flutter)$"
 
         #
         # ========== Always opaque ==========
         #
-        "opaque, class:^([Gg]imp)$"
-        "opaque, class:^([Ff]lameshot)$"
-        "opaque, class:^([Ii]nkscape)$"
-        "opaque, class:^([Bb]lender)$"
-        "opaque, class:^([Oo][Bb][Ss])$"
-        "opaque, class:^([Ss]team)$"
-        "opaque, class:^([Ss]team_app_*)$"
-        "opaque, class:^([Vv]lc)$"
+        "opaque true, match:class ^([Gg]imp)$"
+        "opaque true, match:class ^([Ff]lameshot)$"
+        "opaque true, match:class ^([Ii]nkscape)$"
+        "opaque true, match:class ^([Bb]lender)$"
+        "opaque true, match:class ^([Oo][Bb][Ss])$"
+        "opaque true, match:class ^([Ss]team)$"
+        "opaque true, match:class ^([Ss]team_app_*)$"
+        "opaque true, match:class ^([Vv]lc)$"
 
         # Remove transparency from video
-        "opaque, title:^(Netflix)(.*)$"
-        "opaque, title:^(.*YouTube.*)$"
-        "opaque, title:^(Picture-in-Picture)$"
+        "opaque true, match:title ^(Netflix)(.*)$"
+        "opaque true, match:title ^(.*YouTube.*)$"
+        "opaque true, match:title ^(Picture-in-Picture)$"
         #
         # ========== Scratch rules ==========
         #
@@ -239,10 +239,10 @@
         #
         #FIXME(steam): testing with stayfocused disabled.
         #"stayfocused, title:^()$,class:^([Ss]team)$"
-        "minsize 1 1, title:^()$,class:^([Ss]team)$"
-        "immediate, class:^([Ss]team_app_*)$"
-        "workspace 7, class:^([Ss]team_app_*)$"
-        "monitor 0, class:^([Ss]team_app_*)$"
+        #"minsize 1 1, match:title ^()$,class:^([Ss]team)$"
+        "immediate true, match:class ^([Ss]team_app_*)$"
+        "workspace 7, match:class ^([Ss]team_app_*)$"
+        "monitor 0, match:class ^([Ss]team_app_*)$"
 
         #
         # ========== Fameshot rules ==========
@@ -258,14 +258,14 @@
         #
         # ========== Workspace Assignments ==========
         #
-        "workspace 2, class:^(virt-manager)$"
+        "workspace 2, match:class ^(virt-manager)$"
         # "workspace 1, class:^(obsidian)$"
         # "workspace 9, class:^(brave-browser)$"
         # "workspace 9, class:^(signal)$"
         # "workspace 9, class:^(org.telegram.desktop)$"
-        "workspace 5, class:^(steam)$"
-        "workspace 6, class:^(discord)$"
-        "workspace 6, class:^(teams-for-linux)$"
+        "workspace 5, match:class ^(steam)$"
+        "workspace 6, match:class ^(discord)$"
+        "workspace 6, match:class ^(teams-for-linux)$"
         # "workspace 0, title:^([Ss]potify*)$"
       ];
 

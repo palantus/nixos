@@ -50,7 +50,7 @@
       refreshRate = 100;
       x = 0;
       y = 0;
-      # vrr = 1;
+      vrr = 2;
       primary = true;
       workspace = "1";
       workspaces = ["2" "3" "4" "5"]; 
