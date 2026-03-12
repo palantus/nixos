@@ -17,7 +17,7 @@
       #   ];
       # };
     };
-    extraConfig = ''swtpm = "/run/current-system/sw/bin/swtpm"'';
+    # extraConfig = ''swtpm = "/run/current-system/sw/bin/swtpm"'';
   };
   virtualisation.spiceUSBRedirection.enable = true;
 
