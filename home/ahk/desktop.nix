@@ -50,7 +50,7 @@
       refreshRate = 100;
       x = 0;
       y = 0;
-      vrr = 2;
+      vrr = 0; # 0 = disabled, 1 = always on, 2 = only on for fullscreen apps
       primary = true;
       workspace = "1";
       workspaces = ["2" "3" "4" "5"]; 
