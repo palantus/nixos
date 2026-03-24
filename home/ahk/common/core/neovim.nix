@@ -33,6 +33,7 @@
     options = {
       tabstop = 2;
       shiftwidth = 2;
+      foldlevel = 99; # Avoid autofolding of documents
     };
 
     theme = {
