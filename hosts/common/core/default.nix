@@ -144,7 +144,8 @@
     #targets.foo.enable = false;
     targets.qt = {
       enable = true;
-      platform = lib.mkForce "qt5ct";
+      # platform = lib.mkForce "qt5ct";
+      platform = lib.mkForce "qtct";
     };
   };
 
