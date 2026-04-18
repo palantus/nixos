@@ -18,7 +18,7 @@ in
     enable = true;
 
     # relative to ~
-    dotDir = ".config/zsh";
+    dotDir = "/home/ahk/.config/zsh";
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autocd = true;

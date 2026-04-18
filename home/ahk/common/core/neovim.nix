@@ -88,7 +88,7 @@
       nix.enable = true;
       nix.format = {
         enable = true;
-        type = "nixfmt";
+        type = ["nixfmt"];
       };
       nix.lsp.enable = true;
       ts.enable = true;

@@ -34,6 +34,9 @@
         ''[workspace 1]${obsidian}/bin/obsidian''
   ];
 
+  gtk.gtk4.theme = null; # To avoid a warning
+  xdg.userDirs.setSessionVariables = false;
+
   #
   # ========== Host-specific Monitor Spec ==========
   #
