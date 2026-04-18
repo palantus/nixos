@@ -15,11 +15,11 @@
     # NeoVIM manager (NVF)
     nvf.url = "github:notashelf/nvf";
 
-    hyprland.url = "github:hyprwm/Hyprland?ref=v0.54.2";
-    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland?ref=v0.54.2";
+    hyprland.url = "github:hyprwm/Hyprland";
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.54.2";
-      # url = "github:outfoxxed/hy3";
+      # url = "github:outfoxxed/hy3?ref=hl0.54.2";
+      url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
     noctalia = {
