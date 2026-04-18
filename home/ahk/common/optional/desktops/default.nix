@@ -4,6 +4,7 @@
     # Packages with custom configs go here
 
     ./hyprland
+    # ./niri
 
     ########## Utilities ##########
     ./services/dunst.nix # Notification daemon
