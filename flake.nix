@@ -22,6 +22,10 @@
       # url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
