@@ -2,6 +2,7 @@
 {
   imports = [ 
     ./transmission.nix 
+    ./yazi.nix
   ];
 
   home.packages = builtins.attrValues {
@@ -36,6 +37,7 @@
       freerdp
 
       obsidian
+      # yazi
       ;
   };
 

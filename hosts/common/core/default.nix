@@ -69,7 +69,11 @@
     udisks
     wget
     unzip
+    zip
+    p7zip
+    gnutar
     killall
+    cifs-utils
    # neovim
   ];
   

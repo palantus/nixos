@@ -113,7 +113,7 @@
 
         "ALT,Return,exec,${terminal}"
         "CTRL_ALT,v,exec,${terminal} ${editor}"
-        "CTRL_ALT,f,exec,nautilus"
+        "CTRL_ALT,f,exec,${terminal} -e yazi"
 
         #
         # ========== Screenshotting ==========

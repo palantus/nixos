@@ -104,7 +104,7 @@
         # steam-run # for running non-NixOS-packaged binaries on Nix
         usbutils
         # tree # cli dir tree viewer
-        unzip # zip extraction
+        # unzip # zip extraction
         # unrar # rar extraction
         # wev # show wayland events. also handy for detecting keypress codes
         # wget # downloader

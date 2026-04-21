@@ -12,6 +12,10 @@ let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in
 {
+  imports = lib.flatten [
+    ./nas.nix #nas shares
+  ];
+
   users.users.${hostSpec.username} = {
     name = hostSpec.username;
     shell = pkgs.zsh; # default shell

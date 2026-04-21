@@ -13,7 +13,7 @@
     inherit (pkgs)
       lazygit
       zig
-      unzip
+      # unzip
       nodejs
       rustc
       cargo
