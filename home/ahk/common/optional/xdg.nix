@@ -4,17 +4,21 @@ let
   browser = [ "firefox.desktop" ];
   editor = [ "nvim.desktop" ];
   media = [ "vlc.desktop" ];
+  imageviewer = [ "org.gnome.Loupe.desktop" ];
   writer = [ "libreoffice-writer.desktop" ];
   spreadsheet = [ "libreoffice-calc.desktop" ];
   slidedeck = [ "libreoffice-impress.desktop" ];
+  folderview = [ "org.gnome.Nautilus.desktop" ];
   # Extensive list of associations here:
   # https://github.com/iggut/GamiNiX/blob/8070528de419703e13b4d234ef39f05966a7fafb/system/desktop/home-main.nix#L77
   associations = {
-    "text/*" = editor;
+    "inode/directory" = folderview;
+
+    # "text/*" = editor;
     "text/plain" = editor;
 
     # "text/html" = browser;
-    "application/x-zerosize" = editor; # empty files
+    # "application/x-zerosize" = editor; # empty files
 
     "application/x-shellscript" = editor;
     "application/x-perl" = editor;
@@ -50,7 +54,23 @@ let
 
     "audio/*" = media;
     "video/*" = media;
-    "image/*" = browser;
+    "image/*" = imageviewer;
+
+    "video/mp4" = media;
+    "video/mpeg" = media;
+    "video/x-matroska" = media;
+    "video/quicktime" = media;
+
+    "image/jpeg" = imageviewer;
+    "image/png" = imageviewer;
+    "image/gif" = imageviewer;
+    "image/webp" = imageviewer;
+    "image/bmp" = imageviewer;
+    "image/avif" = imageviewer;
+    "image/heic" = imageviewer;
+    "image/heif" = imageviewer;
+    "image/tiff" = imageviewer;
+    "image/x-icon" = imageviewer;
 
     "x-scheme-handler/sgnl" = "signal-desktop.desktop";
     "application/x-010intel" = "010editor-import.desktop";

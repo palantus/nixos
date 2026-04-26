@@ -37,7 +37,6 @@
       freerdp
 
       obsidian
-      # yazi
       ;
   };
 

@@ -3,7 +3,7 @@
   programs.yazi = {
     enable = true;
     shellWrapperName = "y"; # Fix warning
-    
+
     # Fetch the plugin from GitHub
     # plugins = {
     #   compress = pkgs.fetchFromGitHub {
