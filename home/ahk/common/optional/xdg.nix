@@ -60,6 +60,12 @@ let
     "video/mpeg" = media;
     "video/x-matroska" = media;
     "video/quicktime" = media;
+    "video/x-flv" = media;
+    "video/3gpp" = media;
+    "video/x-msvideo" = media;
+    "video/x-ms-wmv" = media;
+    "video/vnd.avi" = media;
+    "video/vnd.wmv" = media;
 
     "image/jpeg" = imageviewer;
     "image/png" = imageviewer;
