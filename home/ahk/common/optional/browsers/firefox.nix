@@ -120,6 +120,8 @@ in
       # Should check ~/.mozilla/firefox/PROFILE_NAME/prefs.js | user.js
       # from your old profiles too
       settings = {
+        "browser.startup.page" = 3; # 0: blank, 1: home, 2: last visited, 3: resume session
+        "browser.sessionstore.resume_from_crash" = true;
         "signon.rememberSignons" = false; # Disable built-in password manager
         "browser.compactmode.show" = true;
         "browser.uidensity" = 1; # enable compact mode
