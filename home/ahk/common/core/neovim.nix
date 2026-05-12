@@ -96,6 +96,7 @@
       rust.enable = true;
       css.enable = true;
       html.enable = true;
+      json.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; {

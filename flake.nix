@@ -26,6 +26,7 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    opencode-src.url = "github:anomalyco/opencode";
   };
 
   outputs =

@@ -37,6 +37,7 @@
         "hosts/common/optional/gnupg.nix" # wayland components and pkgs not available in home-manager
         # "hosts/common/optional/yubikey.nix" # yubikey related packages and configs
         # "hosts/common/optional/zsa-keeb.nix" # Moonlander keeb flashing stuff
+        "hosts/common/optional/ollama.nix" #Ollama AI support
       ])
     ];
   
@@ -85,7 +86,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22 11434];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

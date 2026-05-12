@@ -27,6 +27,7 @@ in
       (ifTheyExist [
         "audio"
         "video"
+        "render"
         "docker"
         "git"
         "networkmanager"
