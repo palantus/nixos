@@ -38,6 +38,7 @@
         # "hosts/common/optional/yubikey.nix" # yubikey related packages and configs
         # "hosts/common/optional/zsa-keeb.nix" # Moonlander keeb flashing stuff
         "hosts/common/optional/ollama.nix" #Ollama AI support
+        "hosts/common/optional/dev.nix" #Dev stuff
       ])
     ];
   

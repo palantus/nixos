@@ -51,20 +51,32 @@
       # ========== Monitor ==========
       #
       # parse the monitor spec defined in nix-config/home/<user>/<host>.nix
-      monitor = (
-        map (
-          m:
-          "${m.name},${
-            if m.enabled then
-              "${toString m.width}x${toString m.height}@${toString m.refreshRate}"
-              + ",${toString m.x}x${toString m.y},${toString m.scale}"
-              + ",transform,${toString m.transform}"
-              + ",vrr,${toString m.vrr}"
-            else
-              "disable"
-          }"
-        ) (config.monitors)
-      );
+
+      monitorv2 = map (m: 
+        if !m.enabled then {
+          output = m.name;
+          mode = "disable";
+        } else {
+          output = m.name;
+          mode = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+          position = "${toString m.x}x${toString m.y}";
+          scale = m.scale;
+          vrr = m.vrr;
+        } // (if m.hdr then { 
+            supports_hdr = 1; 
+            cm = "auto";  
+            # cm = "hdr";  
+            # sdrbrightness = 1.0;
+            # sdrsaturation = 1.25;
+            # sdr_max_luminance = 200;
+            # sdr_min_luminance = 0.005;
+          } else {})
+      ) config.monitors;
+
+      render = {
+        # 0 ensures games can hand over color spaces smoothly
+        cm_auto_hdr = 1;
+      };
 
       workspace = (
         let
@@ -254,6 +266,10 @@
         #"move 0 0, class:^([Ff]lameshot)$"
         #"suppressevent fullscreen, class:^([Ff]lameshot)$"
         # "monitor:DP-1, ${flameshot}"
+
+        # ========== Always fullscreen ==========
+        "fullscreen true, match:class ^(mpv)$"
+        "idle_inhibit fullscreen, match:class ^(mpv)$"
 
         #
         # ========== Workspace Assignments ==========

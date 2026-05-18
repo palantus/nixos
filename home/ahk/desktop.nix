@@ -15,6 +15,7 @@
     common/optional/development
     common/optional/comms
     common/optional/terminals
+    common/optional/media
     # common/optional/helper-scripts
     # common/optional/gaming
     # common/optional/media
@@ -50,10 +51,11 @@
       name = "DP-2";
       width = 3440;
       height = 1440;
-      refreshRate = 100;
+      refreshRate = 360;
       x = 0;
       y = 0;
-      vrr = 0; # 0 = disabled, 1 = always on, 2 = only on for fullscreen apps
+      vrr = 2; # 0 = disabled, 1 = always on, 2 = only on for fullscreen apps
+      hdr = true;
       primary = true;
       workspace = "1";
       workspaces = ["2" "3" "4" "5"]; 

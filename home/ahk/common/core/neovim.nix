@@ -15,8 +15,6 @@
       zig
       # unzip
       nodejs
-      rustc
-      gcc
       cargo
       # fzf
       ripgrep
