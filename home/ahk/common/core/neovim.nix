@@ -11,10 +11,10 @@
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      lazygit
+      # lazygit
       zig
       # unzip
-      nodejs
+      # nodejs
       cargo
       # fzf
       ripgrep

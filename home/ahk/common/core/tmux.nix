@@ -32,6 +32,8 @@
     extraConfig = ''
       set -g renumber-windows on
       set -g @catppuccin_flavour 'mocha'
+      set -g extended-keys on
+      set -g extended-keys-format csi-u
       bind S command-prompt -p "New Session:" "new-session -A -s '%%'"
       bind K confirm kill-session
       set-option -g status-position top

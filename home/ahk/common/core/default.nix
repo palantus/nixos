@@ -39,6 +39,7 @@
     sessionPath = [
       "$HOME/.local/bin"
       "$HOME/scripts/talon_scripts"
+      "$HOME/.npm-packages/bin"
     ];
     sessionVariables = {
       FLAKE = "$HOME/src/nix/nix-config";
