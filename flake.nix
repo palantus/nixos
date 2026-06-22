@@ -15,13 +15,11 @@
     # NeoVIM manager (NVF)
     nvf.url = "github:notashelf/nvf";
 
-    # hyprland.url = "github:hyprwm/Hyprland?ref=v0.54.2";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hy3 = {
-      # url = "github:outfoxxed/hy3?ref=hl0.54.2";
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hy3 = {
+    #   url = "github:outfoxxed/hy3";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     # opencode-src.url = "github:anomalyco/opencode";
     noctalia = {
       #FIXME: pinned to 4.7.7 until 5.x becomes more stable (still alpha as 26.06.09)
