@@ -6,6 +6,12 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
 
+  programs.niri = {
+    enable = true;
+    # uwsm.enable = true;
+  };
+  services.displayManager.defaultSession = "niri";
+
   security.pam.services.gdm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 }

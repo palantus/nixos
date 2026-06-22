@@ -22,11 +22,12 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+    # opencode-src.url = "github:anomalyco/opencode";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      #FIXME: pinned to 4.7.7 until 5.x becomes more stable (still alpha as 26.06.09)
+      url = "github:noctalia-dev/noctalia?ref=v4.7.7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    opencode-src.url = "github:anomalyco/opencode";
   };
 
   outputs =

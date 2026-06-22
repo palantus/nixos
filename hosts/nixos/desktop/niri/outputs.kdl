@@ -1,0 +1,12 @@
+output "DP-2" {
+  mode "3440x1440@360"
+  scale 1.0
+  variable-refresh-rate
+  focus-at-startup
+  position x=0 y=0
+}
+output "DP-1" {
+  mode "3840x2160@60"
+  scale 1.5
+  position x=3440 y=0
+}

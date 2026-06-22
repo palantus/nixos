@@ -1,0 +1,36 @@
+// HACK: this should really be tied to user but since I'm the only user it's
+// faster to put it in the same place as outputs.kdl
+//
+// ========== Named Workspaces ==========
+//
+workspace "1" {
+  open-on-output "DP-2"
+}
+workspace "2" {
+  open-on-output "DP-2"
+}
+workspace "3" {
+  open-on-output "DP-2"
+}
+workspace "4" {
+  open-on-output "DP-2"
+}
+workspace "5" {
+  open-on-output "DP-2"
+}
+workspace "6" {
+  open-on-output "DP-1"
+}
+// ========== Workspace Assignments ==========
+window-rule {
+  match title="^(.*obsidian-vault-01.*)$"
+  open-on-workspace "1"
+}
+window-rule {
+  match app-id="discord"
+  open-on-workspace "6"
+}
+window-rule {
+  match app-id="steam"
+  open-on-workspace "5"
+}

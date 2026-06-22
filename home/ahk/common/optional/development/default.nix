@@ -3,6 +3,6 @@
   imports = [ 
     ./scripts.nix 
     ./misc.nix 
-    ./opencode.nix
+    # ./opencode.nix
   ];
 }

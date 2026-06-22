@@ -15,7 +15,7 @@ echo ">>> Deleting problematic mimeapps.list.bk for user $USER..."
 rm -f "${HOME}/.config/mimeapps.list.bk"
 
 echo ">>> Rebuilding NixOS for host: ${HOSTNAME}"
-sudo nixos-rebuild switch --flake "${HOME}/nixos#${HOSTNAME}"
+sudo nixos-rebuild switch --flake "${HOME}/nixos#${HOSTNAME}" --option experimental-features "nix-command flakes pipe-operators"
 
 echo ">>> Deleting problematic mimeapps.list.bk again for user $USER..."
 rm -f "${HOME}/.config/mimeapps.list.bk"

@@ -1,0 +1,44 @@
+// NOTE: Includes are automatically added by default.nix to allow per-host values
+//
+// ========== Animations ==========
+//
+// NOTE: Using .kdlx to avoid kdlfmt mangling the raw string
+//FIXME: switch these to be defined per host
+include "animations/honeycomb.kdlx"
+//include "animations/glitch_01.kdlx"
+animations {
+  slowdown 2.4
+}
+//
+// ========== Overview screen ==========
+//
+overview {
+  workspace-shadow {
+    off
+  }
+}
+//
+// ========== Startup ==========
+//
+spawn-at-startup "noctalia-shell"
+spawn-sh-at-startup "uwsm finalize NIRI_SOCKET"
+spawn-sh-at-startup "nvim-neovide -- -c 'lua require([[resession]]).load([[asc]])'"
+hotkey-overlay {
+  skip-at-startup
+}
+//
+// ========== Miscellaneous ==========
+//
+screenshot-path "~/media/images/screenshots/%Y-%m-%d-%H-%M-%S.png"
+// Disable client-side decorations
+// Prevents focus/ring border to show up through transparent windows
+prefer-no-csd
+// FIXME: revisit this on laptops, remove on desktop
+switch-events {
+  lid-close {
+    spawn "notify-send" "The laptop lid is closed."
+  }
+  lid-open {
+    spawn "notify-send" "The laptop lid is open."
+  }
+}

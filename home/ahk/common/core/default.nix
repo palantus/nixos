@@ -78,7 +78,7 @@
     };
   };
 
-  gtk.gtk4.theme = null; # To avoid a warning
+  # gtk.gtk4.theme = null; # To avoid a warning
 
   home.packages = builtins.attrValues {
       inherit (pkgs)
@@ -122,6 +122,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "pipe-operators"
       ];
       warn-dirty = false;
     };
