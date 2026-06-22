@@ -6,5 +6,6 @@
     gcc
     rustfmt
     cargo
+    gh # Github cli
   ];
 }

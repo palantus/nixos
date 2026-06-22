@@ -39,6 +39,8 @@
         # "hosts/common/optional/zsa-keeb.nix" # Moonlander keeb flashing stuff
         "hosts/common/optional/ollama.nix" #Ollama AI support
         "hosts/common/optional/dev.nix" #Dev stuff
+        "hosts/common/optional/docker.nix" #Docker/Podman
+        "hosts/common/optional/protonvpn.nix" #VPN
       ])
     ];
   
