@@ -104,16 +104,16 @@ binds {
     switch-focus-between-floating-and-tiling
   }
   Super+H hotkey-overlay-title="Focus column or monitor left" {
-    focus-column-or-monitor-left
+    focus-column-left
   }
   Super+J hotkey-overlay-title="Focus column or monitor down" {
-    focus-window-or-monitor-down
+    focus-window-down
   }
   Super+K hotkey-overlay-title="Focus column or monitor up" {
-    focus-window-or-monitor-up
+    focus-window-up
   }
   Super+L hotkey-overlay-title="Focus column or monitor right" {
-    focus-column-or-monitor-right
+    focus-column-right
   }
   Super+BracketLeft {
     focus-column-first
