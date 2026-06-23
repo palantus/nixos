@@ -29,6 +29,12 @@ window-rule {
 window-rule {
   match app-id="discord"
   open-on-workspace "6"
+  default-column-width { proportion 0.495; }
+}
+window-rule {
+  match app-id=r#"^(teams|ms-teams|teams-for-linux)$"#
+  open-on-workspace "6"
+  default-column-width { proportion 0.5; }
 }
 window-rule {
   match app-id="steam"

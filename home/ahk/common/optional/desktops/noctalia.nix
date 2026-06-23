@@ -633,10 +633,10 @@ deepin-system-monitor || pantheon-system-monitor";
             {
               clockColor = "secondary";
               customFont = "";
-              formatHorizontal = "HH:mm  yy.MM.dd.ddd";
-              formatVertical = "HH:mm yy.MM.dd";
+              formatHorizontal = "ddd dd.MM.yyyy HH:mm";
+              formatVertical = "dd.MM.yyyy HH:mm";
               id = "Clock";
-              tooltipFormat = "HH:mm  yy.MM.dd.ddd";
+              tooltipFormat = "ddd dd.MM.yyyy HH:mm";
               useCustomFont = false;
             }
             {

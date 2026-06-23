@@ -362,7 +362,7 @@ binds {
   //
   // Open ghostty.
   Super+Return hotkey-overlay-title="New shell" {
-    spawn "ghostty"
+    spawn "ghostty" "-e" "tmux"
   }
   // Spawn file explorer
   Super+Ctrl+O hotkey-overlay-title="Spawn file explorer" {
