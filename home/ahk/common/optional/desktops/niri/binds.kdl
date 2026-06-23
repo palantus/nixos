@@ -361,18 +361,8 @@ binds {
   // ========== Quick Launch ==========
   //
   // Open ghostty.
-  Super+Shift+G hotkey-overlay-title="New shell" {
+  Super+Return hotkey-overlay-title="New shell" {
     spawn "ghostty"
-  }
-  // Open neovide
-  Super+V hotkey-overlay-title="Neovide" {
-    // From fidgetingvim flake
-    spawn "nvim-neovide"
-  }
-  Super+Return hotkey-overlay-title="New neovide shell" {
-    // From fidgetingvim flake
-    // spawn "nvim-neovide" "--" "-c" "ToggleTerm"
-    spawn "nvim-neovide" "--" "-c" "term"
   }
   // Spawn file explorer
   Super+Ctrl+O hotkey-overlay-title="Spawn file explorer" {
