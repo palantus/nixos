@@ -279,17 +279,17 @@
       };
       idle = {
         customCommands = "[]";
-        enabled = false;
+        enabled = true;
         fadeDuration = 5;
         lockCommand = "";
-        lockTimeout = 660;
+        lockTimeout = 0;
         resumeLockCommand = "";
         resumeScreenOffCommand = "";
         resumeSuspendCommand = "";
         screenOffCommand = "";
-        screenOffTimeout = 600;
+        screenOffTimeout = 300;
         suspendCommand = "";
-        suspendTimeout = 1800;
+        suspendTimeout = 0;
       };
       location = {
         analogClockInCalendar = false;

@@ -2,15 +2,29 @@
 {
   #imports = [ ./foo.nix ];
 
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
+  home.packages = with pkgs; [
 
-      # signal-desktop
-      #telegram-desktop
-      discord
-      # slack
-      teams-for-linux
-      obs-studio
-      ;
-  };
+    # Electron overrides for better wayland/scaling support:
+    (discord.override {
+      withOpenASAR = true; # Keeps the wrapper clean and snappy
+      commandLineArgs = [
+        "--enable-features=UseOzonePlatform"
+        "--ozone-platform=wayland"
+        "--enable-wayland-ime"
+      ];
+    })
+    (teams-for-linux.overrideAttrs (oldAttrs: {
+      postInstall = (oldAttrs.postInstall or "") + ''
+        wrapProgram $out/bin/teams-for-linux \
+          --add-flags "--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
+      '';
+    }))
+
+    # Other:
+
+    # signal-desktop
+    # telegram-desktop
+    # slack
+    obs-studio
+  ];
 }
