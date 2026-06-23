@@ -90,7 +90,7 @@
         type = ["nixfmt"];
       };
       nix.lsp.enable = true;
-      ts.enable = true;
+      typescript.enable = true;
       rust.enable = true;
       css.enable = true;
       html.enable = true;

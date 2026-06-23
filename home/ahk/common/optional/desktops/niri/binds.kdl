@@ -391,7 +391,7 @@ binds {
   }
   // Spawn file explorer
   Super+Ctrl+O hotkey-overlay-title="Spawn file explorer" {
-    spawn "thunar"
+    spawn "yazi"
   }
  //
     // ========== Clipboard ==========
