@@ -202,7 +202,7 @@
         animationDisabled = false;
         animationSpeed = 1;
         autoStartAuth = false;
-        avatarImage = "/home/ta/src/nix/nix-assets/images/avatars/emergentmind_avatar_200k.png";
+        avatarImage = "/home/ahk/nixos/assets/avatars/avatarparody_square.jpg";
         boxRadiusRatio = 1;
         clockFormat = "HH:mm ";
         clockStyle = "custom";

@@ -8,7 +8,7 @@ let
   writer = [ "libreoffice-writer.desktop" ];
   spreadsheet = [ "libreoffice-calc.desktop" ];
   slidedeck = [ "libreoffice-impress.desktop" ];
-  folderview = [ "org.gnome.Nautilus.desktop" ];
+  folderview = [ "yazi.desktop" ];
   # Extensive list of associations here:
   # https://github.com/iggut/GamiNiX/blob/8070528de419703e13b4d234ef39f05966a7fafb/system/desktop/home-main.nix#L77
   associations = {
@@ -154,6 +154,12 @@ in
   xdg.mimeApps.defaultApplications = associations;
   xdg.mimeApps.associations.removed = removals;
   xdg.mimeApps.associations.added = associations;
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [ "com.mitchellh.ghostty.desktop" ];
+    };
+  };
 
   home.packages = builtins.attrValues {
     inherit (pkgs)

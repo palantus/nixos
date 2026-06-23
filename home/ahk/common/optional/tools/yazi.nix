@@ -25,4 +25,14 @@
     #   ];
     # };
   };
+  xdg.desktopEntries = {
+    yazi = {
+      name = "Yazi";
+      genericName = "File Manager";
+      exec = "yazi %u";
+      terminal = true;
+      categories = [ "Utility" "Core" "System" "FileTools" "FileManager" ];
+      mimeType = [ "inode/directory" ];
+    };
+  };
 }
