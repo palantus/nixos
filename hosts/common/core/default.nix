@@ -113,6 +113,16 @@
     image = (lib.custom.relativeToRoot "assets/wallpapers/zen-01.png");
     #      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
+    cursor = lib.mkForce {
+      name = "Breeze_Hacked";
+      size = 40;
+      package = pkgs.breeze-hacked-cursor-theme.override {
+        accentColor = "#${config.lib.stylix.colors.base0A}"; # the main cursor colour (base0A is typically the yellow of a base16 color scheme)
+      };
+    };
+
+
     #      cursor = {
     #        package = pkgs.foo;
     #        name = "";
@@ -151,6 +161,7 @@
       # platform = lib.mkForce "qt5ct";
       platform = lib.mkForce "qtct";
     };
+    targets.gtk.enable = true;
   };
 
   qt.platformTheme = "qt5ct";

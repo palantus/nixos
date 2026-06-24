@@ -207,6 +207,14 @@ window-rule {
   open-on-output "DP-2"
   open-on-workspace "5"
 }
+window-rule {
+  match app-id="com.factorio.Factorio"
+  default-column-width {
+    proportion 1.0
+  }
+  open-on-output "DP-2"
+  open-on-workspace "5"
+}
 // ========== Signal ==========
 // Resize certain windows to specific sizes.
 window-rule {

@@ -10,7 +10,6 @@
     };
     # Theming
     stylix.url = "github:danth/stylix";
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
     # NeoVIM manager (NVF)
     nvf.url = "github:notashelf/nvf";
@@ -20,6 +19,7 @@
     #   url = "github:outfoxxed/hy3";
     #   inputs.hyprland.follows = "hyprland";
     # };
+    # rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     # opencode-src.url = "github:anomalyco/opencode";
     noctalia = {
       #FIXME: pinned to 4.7.7 until 5.x becomes more stable (still alpha as 26.06.09)
