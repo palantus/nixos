@@ -653,10 +653,10 @@ deepin-system-monitor || pantheon-system-monitor";
         deadOpacity = 0.6;
         displayMode = "auto_hide";
         dockType = "floating";
-        enabled = false;
+        enabled = true;
         floatingRatio = 1;
-        groupApps = false;
-        groupClickAction = "cycle";
+        groupApps = true;
+        groupClickAction = "list"; # or "cycle"
         groupContextMenuMode = "extended";
         groupIndicatorStyle = "dots";
         inactiveIndicators = false;

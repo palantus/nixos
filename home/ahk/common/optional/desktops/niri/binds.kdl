@@ -77,6 +77,9 @@ binds {
   Super+6 {
     focus-workspace "6"
   }
+  Alt+R {
+    focus-workspace "2"
+  }
   Super+Period hotkey-overlay-title="Focus workspace previous" {
     focus-workspace-previous
   }
