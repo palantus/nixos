@@ -116,7 +116,7 @@
 
     cursor = lib.mkForce {
       name = "Breeze_Hacked";
-      size = 40;
+      size = 24;
       package = pkgs.breeze-hacked-cursor-theme.override {
         accentColor = "#${config.lib.stylix.colors.base0A}"; # the main cursor colour (base0A is typically the yellow of a base16 color scheme)
       };

@@ -1,2 +1,3 @@
 //spawn-at-startup "obsidian"
 spawn-at-startup "firefox"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"

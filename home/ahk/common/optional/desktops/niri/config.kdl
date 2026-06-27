@@ -7,7 +7,7 @@
 include "animations/honeycomb.kdlx"
 //include "animations/glitch_01.kdlx"
 animations {
-  slowdown 2.4
+  slowdown 0.4
 }
 //
 // ========== Overview screen ==========
