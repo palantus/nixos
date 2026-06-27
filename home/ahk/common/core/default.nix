@@ -40,10 +40,11 @@
       "$HOME/.local/bin"
       "$HOME/scripts/talon_scripts"
       "$HOME/.npm-packages/bin"
+      "$HOME/.nix-profile/bin"
     ];
     sessionVariables = {
       FLAKE = "$HOME/src/nix/nix-config";
-      SHELL = "zsh";
+      SHELL = "$HOME/.nix-profile/bin/zsh";
       TERM = "ghostty";
       TERMINAL = "ghostty";
       VISUAL = "nvim";
