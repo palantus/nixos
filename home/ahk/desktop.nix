@@ -37,6 +37,7 @@
 
   # gtk.gtk4.theme = null; # To avoid a warning
   xdg.userDirs.setSessionVariables = false;
+  home.pointerCursor.enable = true;
 
   #
   # ========== Host-specific Monitor Spec ==========
