@@ -59,6 +59,7 @@
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
     ];
     experimental-features = [ "nix-command" "flakes" "pipe-operators"];
+    trusted-users = ["root" "ahk"];
   };
 
   # System-wide packages, in case we log in as root
