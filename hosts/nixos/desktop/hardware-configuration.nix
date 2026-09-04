@@ -27,7 +27,7 @@
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/090be7f4-00f5-4773-a610-16a323af8163";
     fsType = "auto";
-    options = [ "defaults" "user" "rw" ];
+    options = [ "defaults" "user" "rw" "exec" ];
   };
 
   swapDevices =
