@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   osConfig,
@@ -9,12 +10,11 @@
     ./scripts.nix
   ];
   home = {
-    packages = lib.attrValues {
-      inherit (pkgs)
-        niri
-        xwayland-satellite # xwayland support
-        ;
-    };
+    packages = with pkgs; [
+      niri
+      # xwayland-satellite # xwayland support
+      inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
     file =
       let
         hostPath = "hosts/nixos/${osConfig.hostSpec.hostName}/niri";
