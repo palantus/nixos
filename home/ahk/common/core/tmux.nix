@@ -66,6 +66,10 @@
         "dashboard" d "popup -d '#{pane_current_path}' -w 90% -h 90% -x C -y C -E 'workmux dashboard'" \
         "sidebar" s "run-shell 'workmux sidebar'" \
         "quit" q ""
+      bind a popup -d '#{pane_current_path}' -w 80% -h 80% -E 'ahkdev'
+      set -g allow-rename off
+      set -g allow-set-title off
+      bind c new-window -c "#{pane_current_path}"
     '';
   };
 }

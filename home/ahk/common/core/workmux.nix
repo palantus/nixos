@@ -66,5 +66,15 @@ in
     merge_strategy: rebase
     agent: pi
     nerdfont: true
+    window_prefix: "{project} 󰘬 "
+
+    # default window layout
+    windows:
+      - name: editor
+        panes:
+          - command: nvim
+            focus: true
+      - name: server
+      - name: agent
   '';
 }
