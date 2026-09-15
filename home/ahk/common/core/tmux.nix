@@ -55,6 +55,17 @@
       bind Down resize-pane -D 20
       bind Left resize-pane -L 20
       bind Right resize-pane -R 20
+      # workmux menu - from: https://github.com/smnatale/dotfiles/blob/main/dot_tmux.conf
+      bind w display-menu -x C -y C -T "workmux" \
+        "add" a "popup -d '#{pane_current_path}' -w 80% -h 20% -x C -y C -E '~/.config/tmux/workmux-popup.sh add'" \
+        "add w/branch" b "popup -d '#{pane_current_path}' -w 80% -h 25% -x C -y C -E '~/.config/tmux/workmux-popup.sh add-from-branch'" \
+        "add w/prompt" p "popup -d '#{pane_current_path}' -w 80% -h 20% -x C -y C -E '~/.config/tmux/workmux-popup.sh add-prompt'" \
+        "open" o "popup -d '#{pane_current_path}' -w 80% -h 60% -x C -y C -E '~/.config/tmux/workmux-popup.sh open'" \
+        "remove" r "popup -d '#{pane_current_path}' -w 80% -h 60% -x C -y C -E '~/.config/tmux/workmux-popup.sh remove'" \
+        "close" c "popup -d '#{pane_current_path}' -w 80% -h 60% -x C -y C -E '~/.config/tmux/workmux-popup.sh close'" \
+        "dashboard" d "popup -d '#{pane_current_path}' -w 90% -h 90% -x C -y C -E 'workmux dashboard'" \
+        "sidebar" s "run-shell 'workmux sidebar'" \
+        "quit" q ""
     '';
   };
 }

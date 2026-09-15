@@ -114,6 +114,9 @@ in
       # vi = "nvim";
       # vim = "nvim";
 
+      #-------------tmux---------------
+      wm = "workmux";
+
       #-------------SSH---------------
       ssh = "TERM=xterm ssh";
 

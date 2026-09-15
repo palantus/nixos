@@ -26,6 +26,7 @@
     # ./zoxide.nix
     ./neovim.nix
     ./tmux.nix
+    ./workmux.nix
   ];
 
   inherit hostSpec;

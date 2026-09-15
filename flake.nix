@@ -32,6 +32,8 @@
       url = "github:Supreeeme/xwayland-satellite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    workmux.url = "github:raine/workmux";
   };
 
   outputs =
