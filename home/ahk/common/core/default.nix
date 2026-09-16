@@ -23,7 +23,7 @@
     # ./kitty.nix
     # ./screen.nix
     # ./ssh.nix
-    # ./zoxide.nix
+    ./zoxide.nix
     ./neovim.nix
     ./tmux.nix
     ./workmux.nix

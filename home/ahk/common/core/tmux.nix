@@ -7,6 +7,8 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
       tmux
+      sesh
+      fd
       ;
   };
 
@@ -27,7 +29,7 @@
       # tmux-which-key
       sensible
       catppuccin
-      tmux-sessionx
+      tmux-fzf
     ];
 
     extraConfig = ''
@@ -35,6 +37,12 @@
       set -g @catppuccin_flavour 'mocha'
       set -g extended-keys on
       set -g extended-keys-format csi-u
+
+      unbind C-Space
+      set-option -g prefix C-Space
+      bind-key C-Space send-prefix
+      bind-key C-b send-prefix
+
       bind S command-prompt -p "New Session:" "new-session -A -s '%%'"
       bind K confirm kill-session
       set-option -g status-position top
@@ -71,6 +79,25 @@
       set -g allow-rename off
       set -g allow-set-title off
       bind c new-window -c "#{pane_current_path}"
+      bind | split-window -h -c "#{pane_current_path}"
+      bind % split-window -v -c "#{pane_current_path}"
+      bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+      set -g detach-on-destroy off  # don't exit from tmux when closing a session
+      bind -N "last-session (via sesh) " L run-shell "sesh last"
+      bind-key "t" run-shell "sesh connect \"$(
+        sesh list --icons | fzf-tmux -p 80%,70% \
+          --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+          --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+          --bind 'tab:down,btab:up' \
+          --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+          --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+          --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+          --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+          --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+          --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+          --preview-window 'right:55%' \
+          --preview 'sesh preview {}'
+      )\""
     '';
   };
 }

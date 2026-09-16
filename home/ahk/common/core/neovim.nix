@@ -196,7 +196,7 @@
       {
         key = "<leader>wq";
         mode = [ "n" ];
-        action = ":wq<CR>";
+        action = ":wqa<CR>";
         silent = true;
         desc = "Save file and quit";
       }
@@ -210,7 +210,7 @@
       {
         key = "<leader>q";
         mode = [ "n" ];
-        action = ":q<CR>";
+        action = ":qa<CR>";
         silent = true;
         desc = "Quit";
       }
