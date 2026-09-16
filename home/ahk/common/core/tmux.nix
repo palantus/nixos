@@ -24,9 +24,10 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       yank
-      #tmux-which-key
+      # tmux-which-key
       sensible
       catppuccin
+      tmux-sessionx
     ];
 
     extraConfig = ''
