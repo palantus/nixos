@@ -25,9 +25,18 @@
     enable = true;
   };
 
+
+  stylix.targets.nvf.enable = false;
+
   programs.nvf.settings.vim = {
     viAlias = true;
     vimAlias = true;
+
+    extraPackages = with pkgs; [
+      tree-sitter
+      file
+      sqlite
+    ];
 
     options = {
       tabstop = 2;
@@ -37,8 +46,8 @@
 
     theme = {
       enable = true;
-      name = lib.mkForce "tokyonight";
-      style = "night";
+      name = "catppuccin";
+      style = "mocha";
     };
 
     statusline.lualine.enable = true;
@@ -67,7 +76,15 @@
     clipboard.enable = true;
     terminal.toggleterm.enable = true;
     terminal.toggleterm.lazygit.enable = true;
-    ui.noice.enable = true;
+    ui.noice = {
+      enable = true;
+      setupOpts = {
+        lsp.signature.enabled = true;
+      };
+    };
+    notify = {
+      nvim-notify.enable = true;
+    };
     notes.todo-comments.enable = true;
     mini.basics.enable = true;
     mini.ai.enable = true;

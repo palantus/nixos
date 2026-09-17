@@ -98,6 +98,10 @@
           --preview-window 'right:55%' \
           --preview 'sesh preview {}'
       )\""
+      bind H display-menu -x C -y C -T "Helpers" \
+        "Linux commands" c "popup -d '#{pane_current_path}' -w 80% -h 80% -x C -y C -E 'bash -l -c \"compgen -c | sort -u | fzf --preview \'\\\'\'man {} | col -bx | head -100\'\\\'\' --preview-window=right:70% | xargs -r man\"'" \
+        "Tmux keys" t "popup -d '#{pane_current_path}' -w 80% -h 80% -x C -y C -E 'tmux list-keys | fzf'" \
+        "quit" q ""
     '';
   };
 }
