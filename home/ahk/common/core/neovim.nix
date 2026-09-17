@@ -98,10 +98,10 @@
     };
 
     extraPlugins = with pkgs.vimPlugins; {
-      avante-nvim = {
-        package = avante-nvim;
-        setup = "require('avante').setup{}";
-      };
+      # avante-nvim = {
+      #   package = avante-nvim;
+      #   setup = "require('avante').setup{}";
+      # };
       aerial = {
         package = aerial-nvim;
         setup = "require('aerial').setup {}";
@@ -117,14 +117,70 @@
       };
     };
 
+    assistant.codecompanion-nvim = {
+        enable = true;
+
+        setupOpts = {
+        # Configure the built-in Ollama adapter.
+        adapters = lib.mkLuaInline ''
+          {
+            http = {
+              ollama = function()
+                return require("codecompanion.adapters").extend("ollama", {
+                  env = {
+                    url = "http://127.0.0.1:11434",
+                  },
+                  schema = {
+                    model = {
+                      default = "qwen3:14b",
+                    },
+                    num_ctx = {
+                      default = 32768,
+                    },
+                  },
+                })
+              end,
+            },
+          }
+        '';
+
+        interactions = {
+          chat.adapter = {
+            name = "ollama";
+            model = "qwen3:14b";
+          };
+
+          inline.adapter = {
+            name = "ollama";
+            model = "qwen3:14b";
+          };
+        };
+
+        display = {
+          chat = {
+            show_settings = true;
+            show_token_count = true;
+            start_in_insert_mode = false;
+          };
+
+          action_palette.provider = "telescope";
+        };
+
+        opts = {
+          log_level = "ERROR";
+          send_code = true;
+        };
+      };
+    };
+
     binds.whichKey.register = {
       "<leader>f" = "Find";
       "<leader>h" = "GitSigns";
       "<leader>g" = "Git";
       "<leader>l" = "LSP actions";
       "<leader>t" = "Toggle";
-      "<leader>a" = "Avante";
       "<leader>o" = "Harpoon";
+      "<leader>a" = "AI";
     };
 
     keymaps = [
@@ -312,6 +368,27 @@
         mode = [ "n" ];
         action = "Nzzzv"; # reset view
         silent = true;
+      }
+      {
+        key = "<leader>aa";
+        mode = [ "n" "v" ];
+        action = ":CodeCompanionActions<CR>";
+        silent = true;
+        desc = "CodeCompanion actions";
+      }
+      {
+        key = "<leader>ac";
+        mode = [ "n" "v" ];
+        action = ":CodeCompanionChat Toggle<CR>";
+        silent = true;
+        desc = "CodeCompanion chat";
+      }
+      {
+        key = "<leader>ai";
+        mode = [ "n" "v" ];
+        action = ":CodeCompanion<CR>";
+        silent = true;
+        desc = "CodeCompanion inline";
       }
 
       # vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
