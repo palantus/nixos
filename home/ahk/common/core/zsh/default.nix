@@ -89,6 +89,8 @@ in
       la = "eza -la --color=never";
       ll = "eza -l --color=never";
       ls = "eza --color=never";
+      lt = "eza --tree --level=2 --long --icons --git";
+      c = "clear";
 
       #------------Nix src navigation------------
       # cnc = "cd ${devNix}/nix-config";

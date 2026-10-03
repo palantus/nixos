@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, inputs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 {
   imports = lib.flatten [
@@ -57,6 +57,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Needed for OBS studio virtual camera:
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
@@ -89,10 +91,16 @@
   nixpkgs.config.allowUnfree = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 11434];
+  # networking.firewall.allowedTCPPorts = [ 22 11434];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
+
+  hardware.wirelessRegulatoryDatabase = true; #For Steam Freme wifi adapter
+
+  boot.extraModprobeConfig = ''
+    options cfg80211 ieee80211_regdom=DK
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
