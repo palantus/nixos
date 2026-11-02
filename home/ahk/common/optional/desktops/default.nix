@@ -5,7 +5,7 @@
 
     # ./hyprland
     ./niri
-    ./noctalia.nix
+    ./noctalia
 
 
     ########## Utilities ##########

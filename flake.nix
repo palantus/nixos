@@ -23,15 +23,16 @@
     # opencode-src.url = "github:anomalyco/opencode";
     noctalia = {
       #FIXME: pinned to 4.7.7 until 5.x becomes more stable (still alpha as 26.06.09)
-      url = "github:noctalia-dev/noctalia?ref=v4.7.7";
+      # url = "github:noctalia-dev/noctalia?ref=v4.7.7";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #FIXME remove when issue 468 is released; Probably 0.8.3. Fixes Steam popup menus.
-    xwayland-satellite = {
-      url = "github:Supreeeme/xwayland-satellite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # #FIXME remove when issue 468 is released; Probably 0.8.3. Fixes Steam popup menus.
+    # xwayland-satellite = {
+    #   url = "github:Supreeeme/xwayland-satellite";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     workmux.url = "github:raine/workmux";
   };
