@@ -12,8 +12,7 @@
   home = {
     packages = with pkgs; [
       niri
-      # xwayland-satellite # xwayland support
-      inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
+      xwayland-satellite # xwayland support
     ];
     file =
       let

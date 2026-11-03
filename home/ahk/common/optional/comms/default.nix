@@ -6,7 +6,7 @@
 
     # Electron overrides for better wayland/scaling support:
     (discord.override {
-      withOpenASAR = true; # Keeps the wrapper clean and snappy
+      withOpenASAR = false; # Keeps the wrapper clean and snappy
       commandLineArgs = [
         "--enable-features=UseOzonePlatform"
         "--ozone-platform=wayland"

@@ -20,8 +20,8 @@
       # clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
       # clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
       # clipboardWrapText = true;
-      # customLaunchPrefix = "";
-      # customLaunchPrefixEnabled = false;
+      customLaunchPrefix = "systemd-run --user --scope --collect --";
+      customLaunchPrefixEnabled = true;
       # density = "default";
       # enableClipPreview = true;
       # enableClipboardChips = true;
@@ -158,7 +158,7 @@
     animationDisabled = false;
     animationSpeed = 1;
     autoStartAuth = false;
-    avatarImage = "/home/ta/dev/nix/nix-assets/images/avatars/emergentmind_avatar_200k.png";
+    avatarImage = "/home/ahk/nixos/assets/avatars/avatarparody_square.jpg";
     boxRadiusRatio = 1;
     clockFormat = "HH:mm ";
     clockStyle = "custom";
@@ -250,9 +250,9 @@
         enabled = false;
       };
       screen-off = {
-        timeout = 600;
+        timeout = 300;
         action = "screen_off";
-        enabled = false;
+        enabled = true;
       };
       suspend = {
         timeout = 1800;
@@ -281,10 +281,6 @@
   noctaliaPerformance = {
     disableDesktopWidgets = true;
     disableWallpaper = true;
-  };
-  plugins = {
-    autoUpdate = false;
-    notifyUpdates = true;
   };
   sessionMenu = {
     countdownDuration = 1000;
@@ -385,7 +381,7 @@ deepin-system-monitor || pantheon-system-monitor";
   };
   wallpaper = {
     enabled = true;
-    default.path = "/home/ta/sync/wallpaper/hostCollections/ghost";
+    default.path = "/home/ahk/nixos/assets/wallpapers/zen-01.png";
     automationEnabled = true;
     enableMultiMonitorDirectories = true;
     favorites = [
@@ -471,138 +467,157 @@ deepin-system-monitor || pantheon-system-monitor";
     showOutline = false;
     useSeparateOpacity = true;
     widgetSpacing = 6;
-    widgets = {
-      left = [
-        {
-          id = "Spacer";
-          width = 30;
-        }
-        {
-          characterCount = 10;
-          colorizeIcons = false;
-          emptyColor = "tertiary";
-          enableScrollWheel = false;
-          focusedColor = "primary";
-          followFocusedScreen = false;
-          fontWeight = "semibold";
-          groupedBorderOpacity = 1;
-          hideUnoccupied = false;
-          iconScale = 0.8;
-          id = "Workspace";
-          labelMode = "name";
-          occupiedColor = "tertiary";
-          pillSize = lib.mkForce 0.85;
-          showApplications = false;
-          showApplicationsHover = false;
-          showBadge = true;
-          showLabelsOnlyWhenOccupied = false;
-          unfocusedIconsOpacity = 1;
-        }
-      ];
-      center = [
-        {
-          defaultSettings = {
-            activeColor = "primary";
-            enableToast = true;
-            hideInactive = false;
-            iconSpacing = 4;
-            inactiveColor = "none";
-            micFilterRegex = "";
-            removeMargins = false;
-          };
-          id = "plugin:privacy-indicator";
-        }
-        {
-          colorizeIcons = false;
-          hideMode = "hidden";
-          id = "ActiveWindow";
-          maxWidth = 500;
-          scrollingMode = "hover";
-          showIcon = true;
-          showText = true;
-          textColor = "secondary";
-          useFixedWidth = false;
-        }
-        {
-          defaultSettings = {
-            compactMode = false;
-            defaultDuration = 0;
-            iconColor = "none";
-            textColor = "none";
-          };
-          id = "plugin:timer";
-        }
-      ];
-      right = [
-        {
-          hideWhenZero = false;
-          hideWhenZeroUnread = false;
-          iconColor = "none";
-          id = "NotificationHistory";
-          showUnreadBadge = true;
-          unreadBadgeColor = "error";
-        }
-        {
-          id = "plugin:rss-feed";
-        }
-        {
-          blacklist = [
-          ];
-          chevronColor = "none";
-          colorizeIcons = false;
-          drawerEnabled = true;
-          hidePassive = false;
-          id = "Tray";
-          pinned = [
-          ];
-        }
-        {
-          displayMode = "alwaysShow";
-          iconColor = "none";
-          id = "Volume";
-          middleClickCommand = "pwvucontrol || pavucontrol";
-          textColor = "none";
-        }
-        {
-          displayMode = "onhover";
-          iconColor = "none";
-          id = "Network";
-          textColor = "none";
-        }
-        {
-          displayMode = "onhover";
-          iconColor = "none";
-          id = "Bluetooth";
-          textColor = "none";
-        }
-        {
-          deviceNativePath = "__default__";
-          displayMode = "graphic-clean";
-          hideIfIdle = false;
-          hideIfNotDetected = true;
-          id = "Battery";
-          showNoctaliaPerformance = false;
-          showPowerProfiles = false;
-        }
-        {
-          clockColor = "secondary";
-          customFont = "";
-          formatHorizontal = "HH:mm  yy.MM.dd.ddd";
-          formatVertical = "HH:mm yy.MM.dd";
-          id = "Clock";
-          tooltipFormat = "HH:mm  yy.MM.dd.ddd";
-          useCustomFont = false;
-        }
-        {
-          id = "Spacer";
-          width = 30;
-        }
+    default = {
+      position = "top";
+
+      start = [ "workspaces" ];
+      center = [ "active_window" ];
+      end = [
+        "notifications"
+        "tray"
+        "volume"
+        "network"
+        "bluetooth"
+        "battery"
+        "clock"
       ];
     };
+
+    # widgets = {
+    #   left = [
+    #     {
+    #       id = "Spacer";
+    #       width = 30;
+    #     }
+    #     {
+    #       characterCount = 10;
+    #       colorizeIcons = false;
+    #       emptyColor = "tertiary";
+    #       enableScrollWheel = false;
+    #       focusedColor = "primary";
+    #       followFocusedScreen = false;
+    #       fontWeight = "semibold";
+    #       groupedBorderOpacity = 1;
+    #       hideUnoccupied = false;
+    #       iconScale = 0.8;
+    #       id = "Workspace";
+    #       labelMode = "name";
+    #       occupiedColor = "tertiary";
+    #       pillSize = lib.mkForce 0.85;
+    #       showApplications = false;
+    #       showApplicationsHover = false;
+    #       showBadge = true;
+    #       showLabelsOnlyWhenOccupied = false;
+    #       unfocusedIconsOpacity = 1;
+    #     }
+    #   ];
+    #   center = [
+    #     {
+    #       defaultSettings = {
+    #         activeColor = "primary";
+    #         enableToast = true;
+    #         hideInactive = false;
+    #         iconSpacing = 4;
+    #         inactiveColor = "none";
+    #         micFilterRegex = "";
+    #         removeMargins = false;
+    #       };
+    #       id = "plugin:privacy-indicator";
+    #     }
+    #     {
+    #       colorizeIcons = false;
+    #       hideMode = "hidden";
+    #       id = "ActiveWindow";
+    #       maxWidth = 500;
+    #       scrollingMode = "hover";
+    #       showIcon = true;
+    #       showText = true;
+    #       textColor = "secondary";
+    #       useFixedWidth = false;
+    #     }
+    #     {
+    #       defaultSettings = {
+    #         compactMode = false;
+    #         defaultDuration = 0;
+    #         iconColor = "none";
+    #         textColor = "none";
+    #       };
+    #       id = "plugin:timer";
+    #     }
+    #   ];
+    #   right = [
+    #     {
+    #       hideWhenZero = false;
+    #       hideWhenZeroUnread = false;
+    #       iconColor = "none";
+    #       id = "NotificationHistory";
+    #       showUnreadBadge = true;
+    #       unreadBadgeColor = "error";
+    #     }
+    #     {
+    #       id = "plugin:rss-feed";
+    #     }
+    #     {
+    #       blacklist = [
+    #       ];
+    #       chevronColor = "none";
+    #       colorizeIcons = false;
+    #       drawerEnabled = true;
+    #       hidePassive = false;
+    #       id = "Tray";
+    #       pinned = [
+    #       ];
+    #     }
+    #     {
+    #       displayMode = "alwaysShow";
+    #       iconColor = "none";
+    #       id = "Volume";
+    #       middleClickCommand = "pwvucontrol || pavucontrol";
+    #       textColor = "none";
+    #     }
+    #     {
+    #       displayMode = "onhover";
+    #       iconColor = "none";
+    #       id = "Network";
+    #       textColor = "none";
+    #     }
+    #     {
+    #       displayMode = "onhover";
+    #       iconColor = "none";
+    #       id = "Bluetooth";
+    #       textColor = "none";
+    #     }
+    #     {
+    #       deviceNativePath = "__default__";
+    #       displayMode = "graphic-clean";
+    #       hideIfIdle = false;
+    #       hideIfNotDetected = true;
+    #       id = "Battery";
+    #       showNoctaliaPerformance = false;
+    #       showPowerProfiles = false;
+    #     }
+    #     {
+    #       clockColor = "secondary";
+    #       customFont = "";
+    #       formatHorizontal = "ddd dd.MM.yyyy HH:mm";
+    #       formatVertical = "dd.MM.yyyy HH:mm";
+    #       id = "Clock";
+    #       tooltipFormat = "ddd dd.MM.yyyy HH:mm";
+    #       useCustomFont = false;
+    #     }
+    #     {
+    #       id = "Spacer";
+    #       width = 30;
+    #     }
+    #   ];
+    # };
     backgroundOpacity = lib.mkForce 1;
   };
   battery = {
     warning_threshold = 20;
+  };
+  widget.clock = {
+    format = "{:%a %d.%m.%Y %H:%M}";
   };
   dock = {
     animationSpeed = 1;
@@ -725,6 +740,8 @@ deepin-system-monitor || pantheon-system-monitor";
     mShadow = lib.mkForce "#000000";
   };
   plugins = {
+    autoUpdate = false;
+    notifyUpdates = true;
     auto_update = "all";
   };
   # plugins =
