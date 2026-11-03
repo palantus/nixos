@@ -80,7 +80,7 @@ layout {
 //
 // ========== ALL windows ==========
 window-rule {
-  geometry-corner-radius 0 0 15 0
+  geometry-corner-radius 0 0 0 0
   clip-to-geometry true
   // focus ring configuration.
   focus-ring {
@@ -99,7 +99,7 @@ window-rule {
 window-rule {
   match is-active=true
   shadow {
-    on
+    off
     softness 8
     spread 5
     // offset x= y=
