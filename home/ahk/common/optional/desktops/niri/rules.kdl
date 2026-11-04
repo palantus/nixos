@@ -244,3 +244,20 @@ window-rule {
     fixed 720
   }
 }
+
+
+// ========== CopyQ ==========
+window-rule {
+  match app-id="com.github.hluk.copyq"
+
+  open-floating true
+  open-fullscreen false
+  open-maximized false
+
+  default-column-width {
+    fixed 800
+  }
+  default-window-height {
+    fixed 600
+  }
+}
