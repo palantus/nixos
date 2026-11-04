@@ -244,7 +244,7 @@ in
       margin_edge = 0;
       radius = 0;
       padding = 5;
-      widget_spacing = 6;
+      widget_spacing = 15;
       show_on_workspace_switch = true;
       capsule = false;
       border_width = 0.0;

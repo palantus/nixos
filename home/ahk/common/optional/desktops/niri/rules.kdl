@@ -215,6 +215,11 @@ window-rule {
   open-on-output "DP-2"
   open-on-workspace "5"
 }
+// Keep the Battle.net launcher windowed.
+window-rule {
+  match title="(?i)^battle[.]net.*$"
+  open-fullscreen false
+}
 // ========== Signal ==========
 // Resize certain windows to specific sizes.
 window-rule {
