@@ -7,5 +7,6 @@
     rustfmt
     cargo
     gh # Github cli
+    python3
   ];
 }
