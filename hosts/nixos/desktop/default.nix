@@ -7,6 +7,7 @@
 {
   imports = lib.flatten [
       ./hardware-configuration.nix
+      ./office-lights.nix
       inputs.home-manager.nixosModules.default
       inputs.stylix.nixosModules.stylix
 
