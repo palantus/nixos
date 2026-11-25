@@ -9,6 +9,7 @@ let
     name = "office-light-manual-off";
     runtimeInputs = with pkgs; [ coreutils systemd niri ];
     text = ''
+      systemctl --user start office-light-wake.service
       systemctl --user start office-light-screen-off.service
       sleep 0.2 # Let the Super+M key release before forcing swayidle idle.
       systemctl --user kill --signal=SIGUSR1 office-light-wake.service
