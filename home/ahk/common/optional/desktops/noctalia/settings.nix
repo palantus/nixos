@@ -249,7 +249,7 @@ in
       capsule = false;
       border_width = 0.0;
       background_opacity = 1.0;
-      start = [ "workspaces" ];
+      start = [ "workspaces" "taskbar" ];
       center = [ "active_window" ];
       end = [ "notifications" "tray" "volume" "network" "bluetooth" "battery" "clock" ];
     };
@@ -258,6 +258,10 @@ in
     warning_threshold = 20;
   };
   widget = {
+    taskbar = {
+      show_running = true;
+      only_active_workspace = true;
+    };
     clock = {
       format = "{:%a %d.%m.%Y %H:%M}";
     };
